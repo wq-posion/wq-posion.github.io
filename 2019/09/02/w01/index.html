@@ -408,20 +408,18 @@
 <p>React 把用户界面抽象成一个个组件，如按钮组件 Button、对话框组件 Dialog、日期组件 Calendar。开发者通过组合这些组件，最终得到功能丰富、可交互的页面。通过引入 JSX 语法，复用组件变得非常容易，同时也能保证组件结构清晰。有了组件这层抽象，React 把代码和真实渲染目标隔离开来，除了可以在浏览器端渲染到 DOM 来开发网页外，还能用于开发原生移动应用</p>
 <h1 id="优势："><a href="#优势：" class="headerlink" title="优势："></a>优势：</h1><p>1.声明式设计 −React采用声明范式，可以轻松描述应用（自动dom操作）。<br>2.高效 −React通过对DOM的模拟(虚拟dom)，最大限度地减少与DOM的交互。<br>3.灵活 −React可以与已知的库或框架很好地配合。可以和第三方库混合使用，vue不可以<br>4.JSX − JSX 是 JavaScript 语法的扩展。时核心组件的语法<br>5.组件 − 通过 React 构建组件，使得代码更加容易得到复用，能够很好的应用在大项目的开发中。<br>6.单向响应的数据流 − React 实现了单向响应的数据流，从而减少了重复代码，这也是它为什么比传统数据绑定更简单。</p>
 <p>React的核心是组件，组件的设计目的是提高代码复用率、降低测试难度和代码复杂度。<br>提高代码复用率：组件将数据和逻辑封装，类似面向对象中的类。<br>降低测试难度：组件高内聚（当前专注于做自己唯一的功能）低耦合（组件和组件之前的关联性很低），很容易对单个组件进行测试。<br>降低代码复杂度：直观的语法可以极大提高可读性。（组件是开发定义是直观的语法）</p>
-<p>使用典型代表公司：<br>国外使用React的公司：Facebook，Flipboard，Airbnb，BBC，GitHub，Instagram，Reddit，Uber，WhatsApp，Yahoo<br>国内使用React的公司：支付宝，淘宝，大搜车，Teambition，豆瓣，豌豆荚</p>
+<p>#使用典型代表公司：<br>国外使用React的公司：Facebook，Flipboard，Airbnb，BBC，GitHub，Instagram，Reddit，Uber，WhatsApp，Yahoo<br>国内使用React的公司：支付宝，淘宝，大搜车，Teambition，豆瓣，豌豆荚</p>
 <p>React 并不是完整的 MVC/MVVM 框架，它专注于提供清晰、简洁的 View（视图）层解决方案。而又与模板引擎不同，React 不仅专注于解决 View 层的问题，又是一个包括 View 和 Controller 的库。对于复杂的应用，可以根据应用场景自行选择业务层框架，并根据需要搭配 Flux、Redux、GraphQL/Relay 来使用。<br>React 不像其他框架那样提供了许多复杂的概念与烦琐的 API，它以 Minimal API Interface 为目标，只提供组件化相关的非常少量的 API。同时为了保持灵活性，它没有自创一套规则，而是尽可能地让用户使用原生 JavaScript 进行开发。只要熟悉原生 JavaScript（面向对象，原型继承） 并了解重要概念后，就可以很容易上手 React 应用开发。</p>
 <p>react 的编程模式，是函数式编程（Functional Programming<br>）<br>工业界的编程：方式一直以命令式编程为主。命令式编程解决的是做什么的问题。<br>函数式编程：对应的是声明式编程，它是人类模仿自己逻辑思考方式发明出来的。<br>函数式编程好处：<br>代码简洁，开发快速<br>接近自然语言，易于理解<br>更方便的代码管理<br>易于”并发编程“<br>代码的热升级</p>
-<p>xtml 和HTML 的区别：1.区分大小写  2.合理嵌套   3.对于标签，必须是双标签<br>JSX 将 HTML 语法直接加入到 JavaScript 代码中，再通过翻译器转换到纯 JavaScript 后由浏览器执行。在实际开发中，JSX 在产品打包阶段都已经编译成纯 JavaScript，不会带来任何副作用，反而会让代码更加直观并易于维护。<br>编译过程由Babel 的 JSX 编译器实现。</p>
-<p>对于样式的写法  高版本是弃用了低版本的，因为js语法是低版本和高版本都是可以用的<br>1.1 . XML 基本语法,定义标签时，只允许被一个标签包裹。一定要闭合。<br>2.如果注释，{/*<div>wajdfjk</div>*/}<br>3.元素类型，小写首字母对应 DOM 元素，大写首字母对应组件元素自然<br>4.react中如何去写css<br>       1、基于class          –（className）<br>    2、基于inner css  （facebook 主张的方式）  行间样式(json)<br>    3、原型链和全局变量<br>5.react中事件机制，react自定义了一套符合w3c标准的事件机制<br>eg：点击：   onClick<br>    触摸结束：  onTouchEnd<br>事件机制可以参考官方api</p>
-<ol start="6">
-<li>HTML 转义<br>React 会将所有要显示到 DOM 的字符串转义，防止 XSS。<br>后台传过来的数据带页面标签的是不能直接转义的，具体转义的写法如下：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> content=<span class="string">'&lt;strong&gt;content&lt;/strong&gt;'</span>;   </span><br><span class="line"> </span><br><span class="line">React.render(</span><br><span class="line">    &lt;div dangerouslySetInnerHTML=&#123;&#123;<span class="attr">__html</span>: content&#125;&#125;&gt;&lt;/div&gt;,</span><br><span class="line">    <span class="built_in">document</span>.body</span><br></pre></td></tr></table></figure>
+<p>#xtml 和HTML 的区别：<br>1.区分大小写  2.合理嵌套   3.对于标签，必须是双标签<br>JSX 将 HTML 语法直接加入到 JavaScript 代码中，再通过翻译器转换到纯 JavaScript 后由浏览器执行。在实际开发中，JSX 在产品打包阶段都已经编译成纯 JavaScript，不会带来任何副作用，反而会让代码更加直观并易于维护。<br>编译过程由Babel 的 JSX 编译器实现。</p>
+<p>#对于样式的写法<br> 高版本是弃用了低版本的，因为js语法是低版本和高版本都是可以用的<br>1.1 . XML 基本语法,定义标签时，只允许被一个标签包裹。一定要闭合。<br>2.如果注释，{/*<div>wajdfjk</div>*/}<br>3.元素类型，小写首字母对应 DOM 元素，大写首字母对应组件元素自然<br>4.react中如何去写css<br>       1、基于class          –（className）<br>    2、基于inner css  （facebook 主张的方式）  行间样式(json)<br>    3、原型链和全局变量<br>5.react中事件机制，react自定义了一套符合w3c标准的事件机制<br>eg：点击：   onClick<br>    触摸结束：  onTouchEnd<br>事件机制可以参考官方api</p>
+<p>#6. HTML 转义<br>React 会将所有要显示到 DOM 的字符串转义，防止 XSS。<br>后台传过来的数据带页面标签的是不能直接转义的，具体转义的写法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> content=<span class="string">'&lt;strong&gt;content&lt;/strong&gt;'</span>;   </span><br><span class="line"> </span><br><span class="line">React.render(</span><br><span class="line">    &lt;div dangerouslySetInnerHTML=&#123;&#123;<span class="attr">__html</span>: content&#125;&#125;&gt;&lt;/div&gt;,</span><br><span class="line">    <span class="built_in">document</span>.body</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<p>补充内容：<br>使用步骤 1、react.creatClass()创建组件<br>2、要去实现组件中render方法<br>3、在render方法中  通过return返回jsx生成页面中的html内容</p>
+<p>#补充内容：<br>使用步骤 1、react.creatClass()创建组件<br>2、要去实现组件中render方法<br>3、在render方法中  通过return返回jsx生成页面中的html内容</p>
 <p>注意：1、组件命名，首字母大写<br>2、render方法  ReactDOM.render(&lt;组件/&gt;,node节点)</p>
-<p>react中写入css<br>1、base class—需要将react写class–用className代替class<br>2、每个组件都具有自己的属性和功能   inner css     reactjs 行内       样式均是以json形式存在{color：’red’},react将变量嵌套jsx中，style={变量名称}<br>3、基于全局变量  也就是将css抽取变成全局变量   或者在组件原型链上面进行挂载</p>
-<p>事件机制<br>（函数声明需要与render同级，因为在reacr.creatClass传入的是对象，声明的函数也是其中的一个对象，是react对象对外暴漏的原型链,render会计算return的方法，同样计算同级的方法）<br>1、直接写事件机制onClick={this.函数名}<br>2、将所有函数变量封装到全局变量中<br>3、原型链写法</p>
+<p>#react中写入css<br>1、base class—需要将react写class–用className代替class<br>2、每个组件都具有自己的属性和功能   inner css     reactjs 行内       样式均是以json形式存在{color：’red’},react将变量嵌套jsx中，style={变量名称}<br>3、基于全局变量  也就是将css抽取变成全局变量   或者在组件原型链上面进行挂载</p>
+<p>#事件机制<br>（函数声明需要与render同级，因为在reacr.creatClass传入的是对象，声明的函数也是其中的一个对象，是react对象对外暴漏的原型链,render会计算return的方法，同样计算同级的方法）<br>1、直接写事件机制onClick={this.函数名}<br>2、将所有函数变量封装到全局变量中<br>3、原型链写法</p>
 
             </div>
             <hr/>
