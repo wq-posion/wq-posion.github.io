@@ -4,9 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="React 生命周期钩子函数总结, 等风来">
-    <meta name="description" content="React生命周期指的是组件从初始化开始到结束的过程，分为三个阶段初始化阶段，更新阶段，销毁阶段。每个react组件都具有生命周期，react都对组件通过生命周期给予的钩子函数进行管理。初始化阶段钩子函数
-1 constructor用于初始">
+    <meta name="keywords" content="TODO, 等风来">
+    <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758&amp;lt;!DOCTYPE ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>React 生命周期钩子函数总结 | 等风来</title>
+    <title>TODO | 等风来</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -261,13 +260,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        React 生命周期钩子函数总结
+                        TODO
                     </div>
                 </div>
             </div>
@@ -405,13 +404,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>React生命周期指的是组件从初始化开始到结束的过程，分为三个阶段初始化阶段，更新阶段，销毁阶段。每个react组件都具有生命周期，react都对组件通过生命周期给予的钩子函数进行管理。<br>初始化阶段钩子函数</p>
-<p>1 constructor<br>用于初始化操作，一般很少使用,唯一一个直接修改state的地方，其他地方通过调用this.setState()方法。react组件的构造函数在挂载之前被调用。在实现React.Component构造函数时，需要先在添加其他内容前，调用super(props)，用来将父组件传来的props绑定到这个类中，使用this.props将会得到<br>    2 static getDerivedStateFromProps()<br>getDerivedStateFromProps在组件实例化后，和接受新的props后被调用。他返回一个对象来更新状态，或者返回null表示新的props不需要任何state的更新。如果是由于父组件的props更改，所带来的重新渲染，也会触发此方法。调用steState()不会触发getDerivedStateFromProps()。<br>3 getDefaultProps<br>getDefaultProps 方法可以用来设置组件属性的默认值,在组件被建立时候就立即调用，所有实例都可以共享这些属性。此时并不可以使用this.state和setState。此方法在ES6中不能使用<br>4 getInitialState<br>getInitialState是设置组件mount以后的初始state的。此方法在ES6中不能使用<br>5 componentWillMount<br>组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state。<br>6 render<br>react最重要的步骤，创建虚拟dom，进行diff算法，更新dom树都在此进行。此时就不能更改state了,注意在render中千万不可使用setState方法，不然马上会引起无限的报错。如果其中包含其他的子组件，那么子组件的生命周期才开始进行。<br>7 componentDidMount<br>组件渲染之后调用，只调用一次。在子组件也都加载完毕后执行，在react中DOM渲染完成，此时就可以操作DOM了。<br>更新阶段钩子函数<br>运行中阶段只有在父组件修改了子组件的属性或者说一个组件修改自身的状态才会发生的情况</p>
-<p>1、组件将要接受新值componentWillReceiveProps（已加载组件收到新的参数时调用）<br>componentWillReceiveProps方法可以比较this.props和nextProps来看是否发生了变化，然后可以进行setState等操作。<br>注意只要父组件此方法触发，那么子组件也会触发，也就是说父组件更新，子组件也会跟着更新。</p>
-<p>2、组件是否更新 shouldComponentUpdate  （影响整个项目的性能，决定视图的更新）</p>
-<p>shouldComponentUpdate 方法在接收了新的props或state后触发，你可以通过返回true或false来控制后面的生命周期流程是否触发<br>3、组件即将更新 componentWillUpdate<br>组件初始化时不调用，只有在组件将要更新时才调用，此时可以修改state<br>4必不可少的render<br>重新渲染</p>
-<p>5组件更新完毕时运行的函数 componentDidUpdate<br>在更新发生后立即调用componentDidUpdate()。此方法不用于初始渲染。当组件更新时，将此作为一个机会来操作DOM。只要您将当前的props与以前的props进行比较（例如，如果props没有改变，则可能不需要网络请求），这也是做网络请求的好地方。<br>销毁阶段钩子函数<br>componentWillUnmount()<br>componentWillUnmount()是组件将要卸载时调用，一些事件监听和定时器需要在此时清除。ES6中使用<br>ReactDOM.unmountComponentAtNode(‘节点’)<br>ReactDOM.unmountComponentAtNode(‘节点’)完全移除组件，组件被浏览器回收掉</p>
-
+                <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script src="lib/</span>react.production.min.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">    &lt;script src="</span>lib/react-dom.production.min.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">    &lt;script src="</span>lib/browser.min.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">    &lt;div id="</span>app<span class="string">"&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;script type="</span>text/babel<span class="string">"&gt;</span></span><br><span class="line"><span class="string">class App extends React.Component&#123;</span></span><br><span class="line"><span class="string">    constructor(props)&#123;</span></span><br><span class="line"><span class="string">        super(props)</span></span><br><span class="line"><span class="string">        this.state=&#123;</span></span><br><span class="line"><span class="string">            tab:[]</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    but()&#123;</span></span><br><span class="line"><span class="string">        // this.state.tab.push(this.refs.ipt.value)</span></span><br><span class="line"><span class="string">        this.setState(&#123;</span></span><br><span class="line"><span class="string">            tab:[...this.state.tab,this.refs.ipt.value]</span></span><br><span class="line"><span class="string">        &#125;)</span></span><br><span class="line"><span class="string">        this.refs.ipt.value=''</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    del(i)&#123;</span></span><br><span class="line"><span class="string">        // console.log(i)</span></span><br><span class="line"><span class="string">        // console.log(this.state.tab)</span></span><br><span class="line"><span class="string">        this.state.tab.splice(i,1)</span></span><br><span class="line"><span class="string">        this.setState(&#123;</span></span><br><span class="line"><span class="string">           tab:this.state.tab</span></span><br><span class="line"><span class="string">        &#125;)</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    render()&#123;</span></span><br><span class="line"><span class="string">        return(</span></span><br><span class="line"><span class="string">            &lt;div&gt;</span></span><br><span class="line"><span class="string">                姓名：&lt;input type="</span>text<span class="string">" ref="</span>ipt<span class="string">"/&gt;</span></span><br><span class="line"><span class="string">                &lt;button onClick=&#123;this.but.bind(this)&#125;&gt;添加&lt;/button&gt;</span></span><br><span class="line"><span class="string">                &lt;ul&gt;</span></span><br><span class="line"><span class="string">                &#123;this.state.tab.map((item,i)=&gt;&#123;</span></span><br><span class="line"><span class="string">                    return(</span></span><br><span class="line"><span class="string">                        &lt;li key=&#123;i&#125;&gt;</span></span><br><span class="line"><span class="string">                        &lt;span&gt;&#123;item&#125;&lt;/span&gt;</span></span><br><span class="line"><span class="string">                        &lt;button onClick=&#123;this.del.bind(this,i)&#125;&gt;删除&lt;/button&gt;</span></span><br><span class="line"><span class="string">                        &lt;/li&gt;</span></span><br><span class="line"><span class="string">                    )</span></span><br><span class="line"><span class="string">                &#125;)&#125;&lt;/ul&gt;</span></span><br><span class="line"><span class="string">            &lt;/div&gt;</span></span><br><span class="line"><span class="string">        )</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">ReactDOM.render(&lt;App/&gt;,document.getElementById('app'))</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
             </div>
             <hr/>
 
@@ -569,9 +562,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《React 生命周期钩子函数总结》
+                    《TODO》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/04/w05/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/04/w06/" property="cc:attributionName"
                rel="cc:attributionURL">
                 John Doe
             </a> 采用
@@ -611,9 +604,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/09/04/w06/">
                     <div class="card-image">
@@ -631,9 +625,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -642,6 +636,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -652,20 +647,20 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/04/w04/">
+                <a href="/2019/09/04/w05/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="react 基础（三）">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="React 生命周期钩子函数总结">
                         
-                        <span class="card-title">react 基础（三）</span>
+                        <span class="card-title">React 生命周期钩子函数总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            React生命周期 虚拟dom与diff算法 数据加载1、react组件的生命周期
-1、生命周期指的是组件从初始化开始到结束的过程  或者是生命周期是描述ract组件从开始到结束的过程2、每个react组件都具有生命周期3、react都对组
+                            React生命周期指的是组件从初始化开始到结束的过程，分为三个阶段初始化阶段，更新阶段，销毁阶段。每个react组件都具有生命周期，react都对组件通过生命周期给予的钩子函数进行管理。初始化阶段钩子函数
+1 constructor用于初始
                         
                     </div>
                     <div class="publish-info">
