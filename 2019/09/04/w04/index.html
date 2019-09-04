@@ -4,10 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Webpack搭建React 过程总结, 等风来">
-    <meta name="description" content="npm init （初始化项目）
-npm install webpack webpack-cli webpack-dev-server –save-dev（安装webpack）
-npm install react react-dom –sa">
+    <meta name="keywords" content="react 基础（三）, 等风来">
+    <meta name="description" content="React生命周期 虚拟dom与diff算法 数据加载">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +13,7 @@ npm install react react-dom –sa">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Webpack搭建React 过程总结 | 等风来</title>
+    <title>react 基础（三） | 等风来</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -262,13 +260,13 @@ npm install react react-dom –sa">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Webpack搭建React 过程总结
+                        react 基础（三）
                     </div>
                 </div>
             </div>
@@ -406,15 +404,7 @@ npm install react react-dom –sa">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>npm init （初始化项目）</p>
-<p>npm install webpack webpack-cli webpack-dev-server –save-dev（安装webpack）</p>
-<p>npm install react react-dom –save-dev （安装react）</p>
-<p>npm install babel-loader@7 babel-core babel-preset-es2015 babel-preset-react –save-dev<br>（安装babel解析工具）</p>
-<p>npm install –save-dev html-webpack-plugin（安装自动拷贝index.html工具）</p>
-<p>npm install –save-dev file-loader（图片文件解析工具）</p>
-<p>npm install –save-dev style-loader css-loader（安装css样式解析工具）</p>
-<p>配置webpack.config.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">'development'</span>,</span><br><span class="line">    entry: <span class="string">'./src/main.js'</span>,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.resolve(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">        filename: <span class="string">'output.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    devServer: &#123;</span><br><span class="line">        contentBase: path.join(__dirname, <span class="string">"dist"</span>),</span><br><span class="line">        compress: <span class="literal">true</span>,</span><br><span class="line">        port: <span class="number">9000</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template: <span class="string">'./index.html'</span></span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</span><br><span class="line">    ],</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [&#123;</span><br><span class="line">                test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">                exclude: <span class="regexp">/(node_modules|bower_components)/</span>,</span><br><span class="line">                use: &#123;</span><br><span class="line">                    loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">                    query: &#123;</span><br><span class="line">                        presets: [<span class="string">'es2015'</span>, <span class="string">'react'</span>]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.(png|jpe?g|gif)$/</span>,</span><br><span class="line">                use: [&#123;</span><br><span class="line">                    loader: <span class="string">'file-loader'</span>,</span><br><span class="line">                    options: &#123;&#125;</span><br><span class="line">                &#125;]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+                <h1 id="React生命周期-虚拟dom与diff算法-数据加载"><a href="#React生命周期-虚拟dom与diff算法-数据加载" class="headerlink" title="React生命周期 虚拟dom与diff算法 数据加载"></a>React生命周期 虚拟dom与diff算法 数据加载</h1>
             </div>
             <hr/>
 
@@ -572,9 +562,9 @@ npm install react react-dom –sa">
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Webpack搭建React 过程总结》
+                    《react 基础（三）》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/04/w03/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/04/w04/" property="cc:attributionName"
                rel="cc:attributionURL">
                 John Doe
             </a> 采用
@@ -614,9 +604,10 @@ npm install react react-dom –sa">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/09/04/w04/">
                     <div class="card-image">
@@ -634,9 +625,9 @@ npm install react react-dom –sa">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -645,6 +636,7 @@ npm install react react-dom –sa">
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -655,19 +647,21 @@ npm install react react-dom –sa">
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/04/w02/">
+                <a href="/2019/09/04/w03/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="react 基础（二）">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Webpack搭建React 过程总结">
                         
-                        <span class="card-title">react 基础（二）</span>
+                        <span class="card-title">Webpack搭建React 过程总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无状态组件  hook 受控组件&amp;非受控组件 数据流在React中创建组件有三种方式：ES5写法：React.createClassES6写法：React.Component无状态的函数写法，又称为纯组件SFCvue相比之下：是注册
+                            npm init （初始化项目）
+npm install webpack webpack-cli webpack-dev-server –save-dev（安装webpack）
+npm install react react-dom –sa
                         
                     </div>
                     <div class="publish-info">
