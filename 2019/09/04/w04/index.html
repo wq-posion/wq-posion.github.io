@@ -5,7 +5,8 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="react 基础（三）, 等风来">
-    <meta name="description" content="React生命周期 虚拟dom与diff算法 数据加载">
+    <meta name="description" content="React生命周期 虚拟dom与diff算法 数据加载1、react组件的生命周期
+1、生命周期指的是组件从初始化开始到结束的过程  或者是生命周期是描述ract组件从开始到结束的过程2、每个react组件都具有生命周期3、react都对组">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -404,7 +405,44 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="React生命周期-虚拟dom与diff算法-数据加载"><a href="#React生命周期-虚拟dom与diff算法-数据加载" class="headerlink" title="React生命周期 虚拟dom与diff算法 数据加载"></a>React生命周期 虚拟dom与diff算法 数据加载</h1>
+                <h1 id="React生命周期-虚拟dom与diff算法-数据加载"><a href="#React生命周期-虚拟dom与diff算法-数据加载" class="headerlink" title="React生命周期 虚拟dom与diff算法 数据加载"></a>React生命周期 虚拟dom与diff算法 数据加载</h1><p>1、react组件的生命周期</p>
+<p>1、生命周期指的是组件从初始化开始到结束的过程  或者是生命周期是描述ract组件从开始到结束的过程<br>2、每个react组件都具有生命周期<br>3、react都对组件通过生命周期给予的钩子函数进行管理</p>
+<p>2、钩子函数<br>指的是系统某些状态和参数发生改变的时候，系统立马去通知对应处理的函数叫做钩子函数</p>
+<p>3、react组件经历总体阶段</p>
+<p>1、mounted阶段  加载阶段  或者说初始化阶段  这个阶段组件由jsx转换成真实dom<br>2、update阶段 组件运行中阶段 或者更新阶段  当组件修改自身状态，或者父组件修改子组件属性的时候发生的阶段<br>3、umount阶段  组件卸载阶段  这个一般是组件被浏览器回收的阶段</p>
+<p>生命周期整体流程：</p>
+<p>1.实例化<br>getDefaultProps     取得默认属性<br>getInitialState     初始化状态<br>componentWillMount    即将进入dom<br>render         描画dom<br>componentDidMount    已经进入dom</p>
+<p>componentWillMount 是在render 之前挂载的,将要装载，在render之前调用；<br>componentDidMount是在render之后挂载的，可以操作dom元素</p>
+<p>2.具体的声明函数周期—运行中阶段  数据更新过程</p>
+<p>运行中阶段只有在父组件修改了子组件的属性或者说一个组件修改自身的状态才会发生的情况</p>
+<p>1、组件将要接受新值componentWillReceiveProps（已加载组件收到新的参数时调用），不会自动触发，改变新的状态也是不会触发，只有在父组件传子组件的时候，是修改了子组件的值，就会触发钩子函数。可以结合函数看到两个参数，在低版本是是可以看到，传的旧值和新值，在新版，是不能的，只能看到所传递的数据参数。</p>
+<p>2、组件是否更新 shouldComponentUpdate  （影响整个项目的性能，决定视图的更新），是唯一一个影响整个提升项目性能的钩子函数，是决定了组件试图是否更新，在这里面可以写相应一些的逻辑判断，来得到更新的数据是否是你想要的，决定是更新还是不更新，  </p>
+<p>3、组件即将更新 componentWillUpdate</p>
+<p>4、必不可少的render</p>
+<p>5、组件更新完毕时运行的函数 componentDidUpdate</p>
+<p>3、销毁时 componentWillUnmount<br>卸载组件<br>ReactDOM.unmountComponentAtNode(‘节点’)<br>完全被浏览器回收</p>
+<h1 id="扩展-钩子函数，新增的"><a href="#扩展-钩子函数，新增的" class="headerlink" title="扩展 钩子函数，新增的"></a>扩展 钩子函数，新增的</h1><p>constructor<br>1: 用于初始化操作，一般很少使用<br>2：唯一一个直接修改state的地方，其他地方通过调用this.setState()方法。</p>
+<p>static getDerivedStateFromProps<br>1：当state需要从props初始化时，使用<br>2：尽量不使用，维护俩者状态需要消耗额外资源，增加复杂度<br>3：每次render都会调用<br>4：典型场景表单获取默认值</p>
+<p>componentDidMount<br>1：UI渲染完成后调用<br>2：只执行一次<br>3：典型场景：获取外部资源</p>
+<p>componentWillUnmount<br>1：组件被移除时调用<br>2：典型场景：资源释放</p>
+<p>getSnapshotBeforeUpdate<br>1：在render之前调用，state已更新<br>2：典型场景：获取render之前的dom状态</p>
+<p>componentDidUpdate<br>1：每次UI更新被调用<br>2：典型场景：页面通过props重新获取数据</p>
+<p>shouldComponentUpdate<br>1：觉得Vistual Dom是否重绘<br>2：一般可以由PuerComponent自动实现<br>3：典型场景：性能优化</p>
+<p>static getDerivedStateFromProps(nextProps,prevState){<br>    console.log(nextProps)<br>}</p>
+<p>这个生命周期函数是为了替代componentWillReceiveProps存在的，所以在你需要使用componentWillReceiveProps的时候，就可以考虑使用getDerivedStateFromProps来进行替代了。<br>两者的参数是不相同的，而getDerivedStateFromProps是一个静态函数，也就是这个函数不能通过this访问到class的属性，也并不推荐直接访问属性。而是应该通过参数提供的nextProps以及prevState来进行判断，根据新传入的props来映射到state</p>
+<h1 id="虚拟dom-与diff算法"><a href="#虚拟dom-与diff算法" class="headerlink" title="虚拟dom 与diff算法"></a>虚拟dom 与diff算法</h1><p>Web界面由DOM树来构成，当其中某一部分发生变化时，其实就是对应的某个DOM节点发生了变化。在React中，构建UI界面的思路是由当前状态决定界面。前后两个状态就对应两套界面，然后由React来比较两个界面的区别，这就需要对DOM树进行Diff算法分析。</p>
+<p>diff算法：</p>
+<p>传统：找到两棵任意的树之间最小的修改是一个复杂度为 O(n^3) 的问题. 因为需要不同的层级。</p>
+<p>Facebook算法：<br>React 用了一种简单但是强大的技巧, 达到了接近 O(n) 的复杂度.<br>把树按照层级分解</p>
+<p>Facebook算法：<br>列表比较，写一个 key 属性帮助 React 来处理它们之间的对应关系.实际中, 在子元素中找到唯一的 key 通常很容易.</p>
+<p>Facebook算法：<br>Components比较，React app 通常由用户定义的 component 组合而成,通常结果是一个主要是很多 div 组成的树.这个信息也被 React 的 diff 算法考虑进去, React 只会匹配相同类型(ES6 class)的 component.</p>
+<p>Facebook算法：<br>合并操作，当调用 component 的 setState 方法的时候, React 将其标记为 dirty.到每一个事件循环结束, React 检查所有标记 dirty 的 component 重新绘制</p>
+<p>Facebook算法：<br>选择性子树渲染，在组件上实现下面的方法<br>boolean shouldComponentUpdate(object nextProps, object nextState)<br>根据 component 的前一个和下一个 props/state,你可以告诉 React 这个 component 没有更新, 也不需要重新绘制.实现得好的话, 可以带来巨大的性能提升.</p>
+<h1 id="数据加载"><a href="#数据加载" class="headerlink" title="数据加载"></a>数据加载</h1><p>1、数据绑定的第一种方式：基于jsx绑定<br>1、在componentWillMount/componentDidMount 中获取ajax数据  ( 面试题)<br>2、将得到的数据存入state中<br>3、在render中直接将state中的数据循环遍历  放在一个jsx的数据模板中<br>4、循环叠加这个jsx模板   通过{}嵌入到页面中</p>
+<ol start="2">
+<li>mixins函数(es6 弃用)<br>1、作用是可以将一些公共的方法写在一个object的方法里面<br>2、然后通过mixins在组件中声明这个对象的表达式<br>3、在jsx中 就可以使用this去调用object里面的各个方法<br>这样实现了react多个组件之间共享一些公共的方法</li>
+</ol>
+
             </div>
             <hr/>
 
@@ -621,7 +659,8 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            React生命周期 虚拟dom与diff算法 数据加载
+                            React生命周期 虚拟dom与diff算法 数据加载1、react组件的生命周期
+1、生命周期指的是组件从初始化开始到结束的过程  或者是生命周期是描述ract组件从开始到结束的过程2、每个react组件都具有生命周期3、react都对组
                         
                     </div>
                     <div class="publish-info">
