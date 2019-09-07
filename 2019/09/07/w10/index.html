@@ -4,10 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="react 路由, 等风来">
-    <meta name="description" content="创建React环境npm install -g create-react-app 全局环境create-react-app my-app  创建项目
-cd my-app 进入项目npm start  启动
-什么是路由？        路由是">
+    <meta name="keywords" content="react 自动搭建脚手架, 等风来">
+    <meta name="description" content="构建一个新的 React 单页应用，可以通过Create React App来完成。它可以帮助你配置开发环境，以便你可以使用最新的 JavaScript 特性，还能提供一个友好的开发体验，并为生产环境优化你的应用
+123456npm ins">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +14,7 @@ cd my-app 进入项目npm start  启动
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>react 路由 | 等风来</title>
+    <title>react 自动搭建脚手架 | 等风来</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -262,13 +261,13 @@ cd my-app 进入项目npm start  启动
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        react 路由
+                        react 自动搭建脚手架
                     </div>
                 </div>
             </div>
@@ -379,8 +378,8 @@ cd my-app 进入项目npm start  启动
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/react-路由/" target="_blank">
-                                <span class="chip bg-color">react-路由</span>
+                            <a href="/tags/reac自动搭建脚手架/" target="_blank">
+                                <span class="chip bg-color">reac自动搭建脚手架</span>
                             </a>
                         
                     </div>
@@ -394,7 +393,7 @@ cd my-app 进入项目npm start  启动
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-06
+                    2019-09-07
                 </div>
 
                 
@@ -410,36 +409,10 @@ cd my-app 进入项目npm start  启动
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>创建React环境<br>npm install -g create-react-app 全局环境<br>create-react-app my-app  创建项目</p>
-<p>cd my-app 进入项目<br>npm start  启动</p>
-<p><code>什么是路由？</code><br>        路由是根据不同的 url 地址展示不同的内容或页面。</p>
-<p><code>React Router</code><br>        一个针对React而设计的路由解决方案、可以友好的帮你解决React components 到URl之间的同步映射关系。</p>
-<p>安装依赖   使用2.8.1版本的依赖<br>低版本依赖  npm i react@15 react-dom@15 react-router@2 axios –save-dev<br>npm install <a href="mailto:react-router@2.8.1" target="_blank" rel="noopener">react-router@2.8.1</a> -D<br>配合 react/react-dom  15.6.1版本使用</p>
-<p>import React from ‘react’<br>import ReactDOM from ‘react-dom’<br>import { Router, Route, Link, hashHistory} from ‘react-router’<br>react-router中定义了history这个属性 用于方便管理路由的方向 browserHistory／ hashHistory</p>
-<p><code>定义连接组件</code><br>定义链接的组件，类似于a标签。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link   to=“/users&gt;users&lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">&#123;this.props.children&#125;＝＝相当于路由试图的容器</span></span><br></pre></td></tr></table></figure>
+                <p>构建一个新的 React 单页应用，可以通过Create React App来完成。它可以帮助你配置开发环境，以便你可以使用最新的 JavaScript 特性，还能提供一个友好的开发体验，并为生产环境优化你的应用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br><span class="line">create-react-app my-app</span><br><span class="line"></span><br><span class="line">npm i react-router-dom --save-dev</span><br><span class="line">cd my-app</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
 
-<p><code>导航标签应用</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引一下导航标签</span></span><br><span class="line"><span class="keyword">import</span> &#123;Link&#125; <span class="keyword">from</span> <span class="string">"react-router"</span></span><br><span class="line">&lt;Link to=<span class="string">"/home"</span>&gt;首页&lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">      &lt;Link to="/</span>about<span class="string">"&gt;关于&lt;/Link&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>``导入路由和规则`</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入路由对象，和规则,</span></span><br><span class="line"><span class="keyword">import</span> &#123;Router,Route,hashHistory&#125; <span class="keyword">from</span> <span class="string">"react-router"</span></span><br><span class="line"><span class="keyword">import</span> Home <span class="keyword">from</span> <span class="string">"./views/Home"</span></span><br><span class="line"><span class="keyword">import</span> About <span class="keyword">from</span> <span class="string">"./views/About"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在router定义路由规则,代表当前整个路由对象，使用hash模式的路由.</span></span><br><span class="line"><span class="comment">// 每个route上面，有一个path,代表路由规则的路径，不需要嵌套的时候，</span></span><br><span class="line"><span class="comment">// 写单标签就可以，嵌套的时候写双标签</span></span><br><span class="line">ReactDOM.render(&lt;Router history=&#123;hashHistory&#125;&gt;</span><br><span class="line">    &lt;Route path="/" component=&#123;App&#125;&gt;</span><br><span class="line">        &lt;Route path="/home" component=&#123;Home&#125;/&gt;</span><br><span class="line">        &lt;Route path="/about" component=&#123;About&#125;/&gt;</span><br><span class="line">&lt;/Route&gt;</span><br></pre></td></tr></table></figure>
-
-<p><code>重定向的基本配置</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(&lt;Router history=&#123;hashHistory&#125;&gt;</span><br><span class="line">    &lt;Route path="/" component=&#123;App&#125;&gt;</span><br><span class="line">        &#123;/* 在某一个路径下，默认展示试图域名不显示 */&#125;</span><br><span class="line">        &#123;/* &lt;IndexRoute component=&#123;Home&#125; /&gt; */&#125;</span><br><span class="line">        &#123;/* Redirect是跟路径，从哪来。跳到另一个路径，直接跳过 </span><br><span class="line">        &lt;Redirect from="/home" to="/about" /&gt;*/&#125;</span><br><span class="line">        &#123;/* 访问到根路径以后，重新访问到 该路径 */&#125;</span><br><span class="line">        &lt;IndexRedirect to="/home" /&gt;</span><br></pre></td></tr></table></figure>
-
-<p><code>修改行间样式</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> active = &#123; <span class="attr">color</span>: <span class="string">'red'</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">"App"</span>&gt;</span><br><span class="line">      &lt;h1&gt;路由<span class="number">2.0</span>版本&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">      &lt;Link to="/</span>home<span class="string">" activeStyle=&#123;active&#125;&gt;首页&lt;/Link&gt;</span></span><br><span class="line"><span class="string">      &lt;Link to="</span>/about<span class="string">" activeStyle=&#123;active&#125;&gt;关于&lt;/Link&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><code>传参 props传参</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (</span><br><span class="line"> &lt;div key=&#123;i&#125;&gt;&lt;Link to=&#123;"/detail/" + item.pid&#125;&gt;&#123;item.pname&#125;&lt;/Link&gt;&lt;/div&gt; )</span><br><span class="line"> 路由也需要站位符，给个id</span><br><span class="line"> &lt;Route path=<span class="string">"/detail/:id"</span> component=&#123;Detail&#125; /&gt;</span><br><span class="line"> 接收参数的话，可以打印</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="keyword">this</span>.props)</span><br></pre></td></tr></table></figure>
-
-<p> <code>在组件内部，展示详情列表，</code><br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取最新的额值，更新获得详情</span></span><br><span class="line">   componentWillReceiveProps(a) &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(a.params.id)</span><br><span class="line">       api.getdetail(&#123; <span class="attr">id</span>: a.props.params.id &#125;).then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">           <span class="built_in">console</span>.log(data.data)</span><br><span class="line">           <span class="keyword">this</span>.setState(&#123; <span class="attr">detail</span>: data.data &#125;)</span><br><span class="line">       &#125;)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>query的传参</code><br>接收数据，和传参</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount() &#123;</span><br><span class="line">        <span class="comment">// console.log(this.props.params.id)</span></span><br><span class="line">        api.getdetail(&#123; <span class="attr">id</span>: <span class="keyword">this</span>.props.location.query.id &#125;).then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(data.data)</span><br><span class="line">            <span class="keyword">this</span>.setState(&#123; <span class="attr">detail</span>: data.data &#125;) </span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取最新的额值，更新获得详情</span></span><br><span class="line">    componentWillReceiveProps(a) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(a.params.id)</span><br><span class="line">        api.getdetail(&#123; <span class="attr">id</span>: a.location.query.id &#125;).then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(data.data)</span><br><span class="line">            <span class="keyword">this</span>.setState(&#123; <span class="attr">detail</span>: data.data &#125;)</span><br><span class="line">        &#125;) </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>hashHistory</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;hashHistory&#125; <span class="keyword">from</span> <span class="string">"react-router"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">About</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    tap() &#123;</span><br><span class="line">        hashHistory.push(<span class="string">"/home"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;about&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;button onClick=&#123;this.tap.bind(this)&#125;&gt;跳转home&lt;/</span>button&gt;</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"react"</span>: <span class="string">"^16.6.3"</span>,<span class="comment">//是 React 的核心库</span></span><br><span class="line">    <span class="string">"react-dom"</span>: <span class="string">"^16.6.3"</span>,<span class="comment">//提供与 DOM 相关的功能</span></span><br><span class="line">    <span class="string">"react-scripts"</span>: <span class="string">"2.1.1"</span><span class="comment">//create-react-app 的一个核心包，一些脚本和工具的默认配置都集成在里面</span></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
 
 
             </div>
@@ -599,9 +572,9 @@ cd my-app 进入项目npm start  启动
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《react 路由》
+                    《react 自动搭建脚手架》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/06/w09/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/07/w10/" property="cc:attributionName"
                rel="cc:attributionURL">
                 John Doe
             </a> 采用
@@ -645,20 +618,20 @@ cd my-app 进入项目npm start  启动
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/07/w10/">
+                <a href="/2019/09/07/w11/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="react 自动搭建脚手架">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="react 版本项目">
                         
-                        <span class="card-title">react 自动搭建脚手架</span>
+                        <span class="card-title">react 版本项目</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            构建一个新的 React 单页应用，可以通过Create React App来完成。它可以帮助你配置开发环境，以便你可以使用最新的 JavaScript 特性，还能提供一个友好的开发体验，并为生产环境优化你的应用
-123456npm ins
+                            1、安装依赖  不需要指定版本，默认最新    npm i react-router react-router-dom –save-dev
+2、引入主要组件对象import {BrowserRouter as Router,Route,Li
                         
                     </div>
                     <div class="publish-info">
@@ -676,8 +649,8 @@ cd my-app 进入项目npm start  启动
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/reac自动搭建脚手架/" target="_blank">
-                        <span class="chip bg-color">reac自动搭建脚手架</span>
+                    <a href="/tags/react-版本项目/" target="_blank">
+                        <span class="chip bg-color">react 版本项目</span>
                     </a>
                     
                 </div>
@@ -691,19 +664,21 @@ cd my-app 进入项目npm start  启动
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/06/w08/">
+                <a href="/2019/09/06/w09/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="react-redux">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="react 路由">
                         
-                        <span class="card-title">react-redux</span>
+                        <span class="card-title">react 路由</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            使用react-redux组件安装依赖：npm i react-redux –save-devhttps://github.com/reactjs/react-redux也叫UI组件（presentational component），纯组
+                            创建React环境npm install -g create-react-app 全局环境create-react-app my-app  创建项目
+cd my-app 进入项目npm start  启动
+什么是路由？        路由是
                         
                     </div>
                     <div class="publish-info">
@@ -721,8 +696,8 @@ cd my-app 进入项目npm start  启动
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/react-redux/" target="_blank">
-                        <span class="chip bg-color">react-redux</span>
+                    <a href="/tags/react-路由/" target="_blank">
+                        <span class="chip bg-color">react-路由</span>
                     </a>
                     
                 </div>
