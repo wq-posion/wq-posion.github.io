@@ -5,7 +5,10 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Webpack搭建React 过程总结, 等风来">
-    <meta name="description" content="1234567891011121314151617181920如果让你脱离脚手架，能否自己搭建个框架的开发环境？是可以你觉得自己搭建开发环境和自己使用脚手架有什么区别，或者有什么优势？站在双方的角度，使用脚手架，保证开发速度，开发效率比较高">
+    <meta name="description" content="如果让你脱离脚手架，能否自己搭建个框架的开发环境？是可以
+你觉得自己搭建开发环境和自己使用脚手架有什么区别，或者有什么优势？
+站在双方的角度，使用脚手架，保证开发速度，开发效率比较高， 但是里面有的配置是我们不需要的，造成体积过大，
+但是使">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +31,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
 <body>
@@ -408,136 +411,77 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">如果让你脱离脚手架，能否自己搭建个框架的开发环境？是可以</span><br><span class="line">你觉得自己搭建开发环境和自己使用脚手架有什么区别，或者有什么优势？</span><br><span class="line">站在双方的角度，使用脚手架，保证开发速度，开发效率比较高， 但是里面有的配置是我们不需要的，造成体积过大，</span><br><span class="line">但是使用我们自己搭建的开发环境，能从我们时间效率上会比较低，但是对整体项目的体积会小，对整个项目的性能的提升比较高一点的。</span><br><span class="line">npm init （初始化项目）</span><br><span class="line"></span><br><span class="line">npm install webpack webpack-cli webpack-dev-server --save-dev（安装webpack）</span><br><span class="line"></span><br><span class="line">npm install react react-dom --save-dev （安装react）</span><br><span class="line"></span><br><span class="line">npm install babel-loader@<span class="number">7</span> babel-core babel-preset-es2015 babel-preset-react --save-dev</span><br><span class="line">（安装babel解析工具）</span><br><span class="line"></span><br><span class="line">npm install --save-dev html-webpack-plugin（安装自动拷贝index.html工具）</span><br><span class="line"></span><br><span class="line">npm install --save-dev file-loader（图片文件解析工具）</span><br><span class="line"></span><br><span class="line">npm install --save-dev style-loader css-loader（安装css样式解析工具）</span><br><span class="line"></span><br><span class="line">配置webpack.config.js</span><br></pre></td></tr></table></figure>
+                <pre class=" language-js"><code class="language-js">如果让你脱离脚手架，能否自己搭建个框架的开发环境？是可以
+你觉得自己搭建开发环境和自己使用脚手架有什么区别，或者有什么优势？
+站在双方的角度，使用脚手架，保证开发速度，开发效率比较高， 但是里面有的配置是我们不需要的，造成体积过大，
+但是使用我们自己搭建的开发环境，能从我们时间效率上会比较低，但是对整体项目的体积会小，对整个项目的性能的提升比较高一点的。
+npm init （初始化项目）
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">'development'</span>,</span><br><span class="line">    entry: <span class="string">'./src/main.js'</span>,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.resolve(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">        filename: <span class="string">'output.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    devServer: &#123;</span><br><span class="line">        contentBase: path.join(__dirname, <span class="string">"dist"</span>),</span><br><span class="line">        compress: <span class="literal">true</span>,</span><br><span class="line">        port: <span class="number">9000</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template: <span class="string">'./index.html'</span></span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</span><br><span class="line">    ],</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [&#123;</span><br><span class="line">                test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">                exclude: <span class="regexp">/(node_modules|bower_components)/</span>,</span><br><span class="line">                use: &#123;</span><br><span class="line">                    loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">                    query: &#123;</span><br><span class="line">                        presets: [<span class="string">'es2015'</span>, <span class="string">'react'</span>]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.(png|jpe?g|gif)$/</span>,</span><br><span class="line">                use: [&#123;</span><br><span class="line">                    loader: <span class="string">'file-loader'</span>,</span><br><span class="line">                    options: &#123;&#125;</span><br><span class="line">                &#125;]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+npm install webpack webpack<span class="token operator">-</span>cli webpack<span class="token operator">-</span>dev<span class="token operator">-</span>server <span class="token operator">--</span>save<span class="token operator">-</span>dev（安装webpack）
+
+npm install react react<span class="token operator">-</span>dom <span class="token operator">--</span>save<span class="token operator">-</span>dev （安装react）
+
+npm install babel<span class="token operator">-</span>loader@<span class="token number">7</span> babel<span class="token operator">-</span>core babel<span class="token operator">-</span>preset<span class="token operator">-</span>es2015 babel<span class="token operator">-</span>preset<span class="token operator">-</span>react <span class="token operator">--</span>save<span class="token operator">-</span>dev
+（安装babel解析工具）
+
+npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev html<span class="token operator">-</span>webpack<span class="token operator">-</span>plugin（安装自动拷贝index<span class="token punctuation">.</span>html工具）
+
+npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev file<span class="token operator">-</span>loader（图片文件解析工具）
+
+npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev style<span class="token operator">-</span>loader css<span class="token operator">-</span>loader（安装css样式解析工具）
+
+配置webpack<span class="token punctuation">.</span>config<span class="token punctuation">.</span>js</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    mode<span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+    entry<span class="token punctuation">:</span> <span class="token string">'./src/main.js'</span><span class="token punctuation">,</span>
+    output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        filename<span class="token punctuation">:</span> <span class="token string">'output.js'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        contentBase<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">"dist"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        compress<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        port<span class="token punctuation">:</span> <span class="token number">9000</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            template<span class="token punctuation">:</span> <span class="token string">'./index.html'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>HotModuleReplacementPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        rules<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+                test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
+                exclude<span class="token punctuation">:</span> <span class="token regex">/(node_modules|bower_components)/</span><span class="token punctuation">,</span>
+                use<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    loader<span class="token punctuation">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+                    query<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                        presets<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'es2015'</span><span class="token punctuation">,</span> <span class="token string">'react'</span><span class="token punctuation">]</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                test<span class="token punctuation">:</span> <span class="token regex">/\.css$/</span><span class="token punctuation">,</span>
+                use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'style-loader'</span><span class="token punctuation">,</span> <span class="token string">'css-loader'</span><span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                test<span class="token punctuation">:</span> <span class="token regex">/\.(png|jpe?g|gif)$/</span><span class="token punctuation">,</span>
+                use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+                    loader<span class="token punctuation">:</span> <span class="token string">'file-loader'</span><span class="token punctuation">,</span>
+                    options<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+
             </div>
             <hr/>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">

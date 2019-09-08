@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="react 自动搭建脚手架, 等风来">
     <meta name="description" content="构建一个新的 React 单页应用，可以通过Create React App来完成。它可以帮助你配置开发环境，以便你可以使用最新的 JavaScript 特性，还能提供一个友好的开发体验，并为生产环境优化你的应用
-1234567npm in">
+npm install -">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -29,7 +29,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
 <body>
@@ -419,138 +419,22 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>构建一个新的 React 单页应用，可以通过Create React App来完成。它可以帮助你配置开发环境，以便你可以使用最新的 JavaScript 特性，还能提供一个友好的开发体验，并为生产环境优化你的应用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br><span class="line">create-react-app my-app</span><br><span class="line">v</span><br><span class="line">npm i react-router-dom --save-dev</span><br><span class="line">npm i axios --save-dev</span><br><span class="line">cd my-app</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"react"</span>: <span class="string">"^16.6.3"</span>,<span class="comment">//是 React 的核心库</span></span><br><span class="line">    <span class="string">"react-dom"</span>: <span class="string">"^16.6.3"</span>,<span class="comment">//提供与 DOM 相关的功能</span></span><br><span class="line">    <span class="string">"react-scripts"</span>: <span class="string">"2.1.1"</span><span class="comment">//create-react-app 的一个核心包，一些脚本和工具的默认配置都集成在里面</span></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-
+<pre class=" language-js"><code class="language-js">npm install <span class="token operator">-</span>g create<span class="token operator">-</span>react<span class="token operator">-</span>app
+create<span class="token operator">-</span>react<span class="token operator">-</span>app my<span class="token operator">-</span>app
+v
+npm i react<span class="token operator">-</span>router<span class="token operator">-</span>dom <span class="token operator">--</span>save<span class="token operator">-</span>dev
+npm i axios <span class="token operator">--</span>save<span class="token operator">-</span>dev
+cd my<span class="token operator">-</span>app
+npm start</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token string">"dependencies"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"react"</span><span class="token punctuation">:</span> <span class="token string">"^16.6.3"</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//是 React 的核心库</span>
+    <span class="token string">"react-dom"</span><span class="token punctuation">:</span> <span class="token string">"^16.6.3"</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//提供与 DOM 相关的功能</span>
+    <span class="token string">"react-scripts"</span><span class="token punctuation">:</span> <span class="token string">"2.1.1"</span><span class="token comment" spellcheck="true">//create-react-app 的一个核心包，一些脚本和工具的默认配置都集成在里面</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
 
             </div>
             <hr/>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -641,7 +525,7 @@
                     <div class="summary block-with-text">
                         
                             构建一个新的 React 单页应用，可以通过Create React App来完成。它可以帮助你配置开发环境，以便你可以使用最新的 JavaScript 特性，还能提供一个友好的开发体验，并为生产环境优化你的应用
-1234567npm in
+npm install -
                         
                     </div>
                     <div class="publish-info">
