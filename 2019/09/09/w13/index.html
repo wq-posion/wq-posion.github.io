@@ -4,9 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="React 版本项目, 等风来">
-    <meta name="description" content="1、安装依赖  不需要指定版本，默认最新    npm i react-router react-router-dom –save-dev
-2、引入主要组件对象import {BrowserRouter as Router,Route,Li">
+    <meta name="keywords" content="React umi, 等风来">
+    <meta name="description" content="全局安装：npm install -g umi创建文件：umi g page index (在page里创建一个css文件，和js文件)直接启动，会给loal地址：umi dev
+1.导航跳转，要引入导航文件，代码如下：
+// 引入导航文件">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>React 版本项目 | 等风来</title>
+    <title>React umi | 等风来</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -261,13 +262,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        React 版本项目
+                        React umi
                     </div>
                 </div>
             </div>
@@ -378,8 +379,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/React-版本项目/" target="_blank">
-                                <span class="chip bg-color">React 版本项目</span>
+                            <a href="/tags/React-umi/" target="_blank">
+                                <span class="chip bg-color">React umi</span>
                             </a>
                         
                     </div>
@@ -402,7 +403,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-07
+                    2019-09-09
                 </div>
 
                 
@@ -418,63 +419,48 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>1、安装依赖  不需要指定版本，默认最新<br>    npm i react-router react-router-dom –save-dev</p>
-<p>2、引入主要组件对象<br>import {BrowserRouter as Router,Route,Link,NavLink,Redirect} from ‘react-router-dom’；</p>
-<p>BrowserRouter=history<br>HashRouter=hash</p>
-<p>3、书写结构在组件内部，不需要写在render中，Router组件有且只有一个跟节点，除了路由组件，可以写入其他标签<br>    默认 Route所在的位置为路由组件显示的容器（tips：Link写在Router内部形成路由结构）</p>
-<pre class=" language-js"><code class="language-js">    <span class="token operator">&lt;</span>Router<span class="token operator">></span>
-        <span class="token operator">&lt;</span>div<span class="token operator">></span>
-            <span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">"/home"</span><span class="token operator">></span>首页<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span>
-            <span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">"/about"</span><span class="token operator">></span>关于<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span>
-            <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/home"</span> component<span class="token operator">=</span><span class="token punctuation">{</span>Home<span class="token punctuation">}</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
-            <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/about"</span> component<span class="token operator">=</span><span class="token punctuation">{</span>About<span class="token punctuation">}</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
-        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>Router<span class="token operator">></span></code></pre>
-<p>4、路由重定向 通过 Redirect组件对象，设置to属性–Switch对象处理警告-(包含Route以及Redirect)</p>
-<pre class=" language-js"><code class="language-js">    <span class="token operator">&lt;</span>Redirect to<span class="token operator">=</span><span class="token string">"/about"</span><span class="token operator">/</span><span class="token operator">></span>        </code></pre>
-<p>5、路由参数传递 </p>
-<pre class=" language-js"><code class="language-js">    <span class="token operator">/</span>a<span class="token operator">/</span><span class="token number">1</span> <span class="token operator">--</span><span class="token operator">-</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>match<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id
-    <span class="token operator">/</span>a<span class="token operator">?</span>id<span class="token operator">=</span><span class="token number">1</span><span class="token operator">--</span><span class="token operator">-</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>location<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id
-    <span class="token operator">/</span>a <span class="token operator">--</span>  <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>location<span class="token punctuation">.</span>state</code></pre>
-<p>6、事件中进行路由切换跳转</p>
-<pre class=" language-js"><code class="language-js">    <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>history<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'/home'</span><span class="token punctuation">)</span>    
-    因为BrowserRouter  相当于 <span class="token operator">&lt;</span>Router history<span class="token operator">=</span><span class="token punctuation">{</span>history<span class="token punctuation">}</span><span class="token operator">></span>故可直接通过history进行push跳转</code></pre>
-<p>7、NavLink 导航标签，拥有activeClassName属性，声明激活样式<br>8、Prompt 离开组件 </p>
-<pre class=" language-js"><code class="language-js"> <span class="token operator">&lt;</span>Prompt message<span class="token operator">=</span><span class="token string">"string"</span> when<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token operator">/</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">></span> </code></pre>
-<p>路由切换提示文字,when控制</p>
-<h1 id="具体如下："><a href="#具体如下：" class="headerlink" title="具体如下："></a>具体如下：</h1><p>路由对象</p>
-<p>所有react-router-dom导过来的路由相关的对象，都得放在Router 里面， 在里面有且只有一个根节点，</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> HashRouter <span class="token keyword">as</span> Router<span class="token punctuation">,</span> Link<span class="token punctuation">,</span> Route<span class="token punctuation">,</span>Redirect  <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react-router-dom"</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// HashRouter as Router代表定义的ruter对象使用hash模式，相当于&lt;Router history={hashHistory}></span>
-<span class="token comment" spellcheck="true">// Redirect 重定向</span>
-<span class="token keyword">import</span> Home <span class="token keyword">from</span> <span class="token string">"./views/Home"</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> About <span class="token keyword">from</span> <span class="token string">"./views/About"</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <p>全局安装：npm install -g umi<br>创建文件：umi g page index (在page里创建一个css文件，和js文件)<br>直接启动，会给loal地址：umi dev</p>
+<p>1.导航跳转，要引入导航文件，代码如下：</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 引入导航文件</span>
+<span class="token keyword">import</span> Link <span class="token keyword">from</span> <span class="token string">"umi/link"</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
-    <span class="token operator">&lt;</span>div<span class="token operator">></span>
-      <span class="token operator">&lt;</span>h2<span class="token operator">></span>高版本路由<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
-      <span class="token operator">&lt;</span>Router<span class="token operator">></span>
-        <span class="token operator">&lt;</span>div<span class="token operator">></span>
-           <span class="token operator">&lt;</span>Link path<span class="token operator">=</span><span class="token string">"/home"</span><span class="token operator">></span>首页<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span>
-           <span class="token operator">&lt;</span>Link path<span class="token operator">=</span><span class="token string">"/about"</span><span class="token operator">></span>关于<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span>
-           <span class="token operator">&lt;</span>hr <span class="token operator">/</span><span class="token operator">></span>
-           <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/home"</span> component<span class="token operator">=</span><span class="token punctuation">{</span>Home<span class="token punctuation">}</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
-           <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/about"</span> component<span class="token operator">=</span><span class="token punctuation">{</span>About<span class="token punctuation">}</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
-           <span class="token operator">&lt;</span>Redirect to<span class="token operator">=</span><span class="token string">"/home"</span> <span class="token operator">/</span><span class="token operator">></span> 
-          <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-      <span class="token operator">&lt;</span><span class="token operator">/</span>Router<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token punctuation">{</span>styles<span class="token punctuation">.</span>normal<span class="token punctuation">}</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>h1<span class="token operator">></span>Page index<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+      <span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">"/user"</span><span class="token operator">></span>user<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span>
+      <span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">"/list"</span><span class="token operator">></span>list<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span>
+      <span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">"/detail"</span><span class="token operator">></span>list<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span></code></pre>
+<p>2.如何传参<br>在page 里面构建一个文件目录，目录就叫做detail,和路径是一样的，把detail相关的js,css文件放在文件目录里面，如果是parms传参，js重命名为$跟上你要保存接收这个变量名称，（一般我们都叫做id）<br>无状态组件接收参数的时：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token punctuation">{</span>styles<span class="token punctuation">.</span>normal<span class="token punctuation">}</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>h1<span class="token operator">></span>Page detail<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+      <span class="token operator">&lt;</span>h2<span class="token operator">></span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>match<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-  <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p><code>编程路由跳转</code> 如果组件嵌套层级比较多的情况下，通过this.props.history.push调不过去的话（修改的原生js代码），选择原生跳转形式，location.href进行跳转</p>
-<pre class=" language-js"><code class="language-js">     <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>tap<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">></span>跳转路由<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
-            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-        <span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-   <span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>history<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">"/home"</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
+<p>如果是query，传参<br>要在page里面呢，创建一个主文件，index.js，来定义组件，代码如下：</p>
+<pre class=" language-js"><code class="language-js"> <span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> pathname<span class="token punctuation">:</span> <span class="token string">"/detail"</span><span class="token punctuation">,</span> query<span class="token punctuation">:</span> <span class="token punctuation">{</span> id<span class="token punctuation">:</span> <span class="token string">"hello query"</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">></span>detail<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span></code></pre>
+<p>index.js，里接收参数，代码如下：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>div<span class="token operator">></span>
+            <span class="token operator">&lt;</span>h2<span class="token operator">></span>query传参<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
+            <span class="token operator">&lt;</span>h2<span class="token operator">></span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>location<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>state.传参，和query一样，把query 改成state就ok<br>它俩的区别是:在高版本里对query进行了二次隐藏，看不大路径，query可以在地址栏里看到传的参数，state,就看不大，安全性比较高，</p>
+<p>3.如何嵌套<br>在page里创建一个组件，命名为_layout.js,切记这个组件名字是固定的，创建为跟组件，其他的组件是要放在该组件进行展示的，相当于他的子组件，进行路由操作，<br>在组件，嵌套index,代码如下：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>div<span class="token operator">></span>
+            <span class="token operator">&lt;</span>h2<span class="token operator">></span>外部容器组件，主组件<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
+            <span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>children<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>document.ejs定义，html整个生命模板,全局约定<br>global.css 是组件开发，每个js,每个组件都有自己的行为逻辑，约定全局样式文件， 自动引入，（和page并列建立文件）,用类名className也可以改动全局样式，<br>config.js  或者umirc.js  和框架一起使用，<br>安装依赖：npm i umi-plugin-react –save-dev  </p>
 
             </div>
             <hr/>
@@ -509,9 +495,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《React 版本项目》
+                    《React umi》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/07/w11/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/09/w13/" property="cc:attributionName"
                rel="cc:attributionURL">
                 John Doe
             </a> 采用
@@ -555,6 +541,55 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2019/09/17/vue01/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Vue 基础">
+                        
+                        <span class="card-title">Vue 基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Vue/" class="post-category" target="_blank">
+                                    Vue
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue基础/" target="_blank">
+                        <span class="chip bg-color">Vue基础</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2019/09/09/W12/">
                     <div class="card-image">
                         
@@ -571,9 +606,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -591,56 +626,6 @@
                     
                     <a href="/tags/React-项目综合问题/" target="_blank">
                         <span class="chip bg-color">React 项目综合问题</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/09/07/w10/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="react 自动搭建脚手架">
-                        
-                        <span class="card-title">react 自动搭建脚手架</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            构建一个新的 React 单页应用，可以通过Create React App来完成。它可以帮助你配置开发环境，以便你可以使用最新的 JavaScript 特性，还能提供一个友好的开发体验，并为生产环境优化你的应用
-npm install -
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-07
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/React/" class="post-category" target="_blank">
-                                    React
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/reac自动搭建脚手架/" target="_blank">
-                        <span class="chip bg-color">reac自动搭建脚手架</span>
                     </a>
                     
                 </div>
