@@ -4,8 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="React 常见问题, 等风来">
-    <meta name="description" content="调用 setState 之后发生了什么？在代码中调用setState函数之后，React 会将传入的参数对象与组件当前的状态合并，然后触发所谓的调和过程（Reconciliation）。经过调和过程，React 会以相对高效的方式根据新的状">
+    <meta name="keywords" content="React 项目目录结构分析, 等风来">
+    <meta name="description" content="build这个文件主要放了一些与webpack打包的相关文件。
+build.js —- webpack打包脚本，用于构建生产环境的包check-versions.js —- 主要检测当前打包环境的node以及npm的版本是否符合要求util">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>React 常见问题 | 等风来</title>
+    <title>React 项目目录结构分析 | 等风来</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +261,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        React 常见问题
+                        React 项目目录结构分析
                     </div>
                 </div>
             </div>
@@ -377,8 +378,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/React-常见问题/" target="_blank">
-                                <span class="chip bg-color">React 常见问题</span>
+                            <a href="/tags/React-项目目录结构分析/" target="_blank">
+                                <span class="chip bg-color">React 项目目录结构分析</span>
                             </a>
                         
                     </div>
@@ -401,7 +402,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-17
+                    2019-09-18
                 </div>
 
                 
@@ -417,64 +418,89 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><code>调用 setState 之后发生了什么？</code><br>在代码中调用setState函数之后，React 会将传入的参数对象与组件当前的状态合并，然后触发所谓的调和过程（Reconciliation）。经过调和过程，React 会以相对高效的方式根据新的状态构建 React 元素树并且着手重新渲染整个UI界面。在 React 得到元素树之后，React 会自动计算出新的树与老树的节点差异，然后根据差异对界面进行最小化重渲染。在差异计算算法中，React 能够相对精确地知道哪些位置发生了改变以及应该如何改变，这就保证了按需更新，而不是全部重新渲染。</p>
-<p><code>React 中 Element 与 Component 的区别是？</code><br>简单而言，React Element 是描述屏幕上所见内容的数据结构，是对于 UI 的对象表述。典型的 React Element 就是利用 JSX 构建的声明式代码片然后被转化为createElement的调用组合。而 React Component 则是可以接收参数输入并且返回某个 React Element 的函数或者类。更多介绍可以参考React Elements vs React Components。</p>
-<p><code>在什么情况下你会优先选择使用 Class Component 而不是 Functional Component？</code><br>在组件需要包含内部状态或者使用到生命周期函数的时候使用 Class Component ，否则使用函数式组件。</p>
-<p><code>React 中 refs 的作用是什么？</code><br>注意，根据React最新文档，下面这种用法已经被弃用了，统一改为回调函数模式</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>textInput</code></pre>
-<p>Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例的句柄。我们可以为元素添加ref属性然后在回调函数中接受该元素在 DOM 树中的句柄，该值会作为回调函数的第一个参数返回：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">CustomForm</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
-  handleSubmit <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Input Value: "</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>input<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+                <p><code>build</code><br>这个文件主要放了一些与webpack打包的相关文件。</p>
+<p>build.js —- webpack打包脚本，用于构建生产环境的包<br>check-versions.js —- 主要检测当前打包环境的node以及npm的版本是否符合要求<br>utils.js —- webpack打包所需要的一些工具库<br>webpack.base.conf.js —- webpack的一些基础配置，不同环境的webpack配置都是基于此<br>webpack.dev.conf.js —- 开发环境的webpack配置<br>webpack.prod.conf.js —- 生产环境的webpack配置</p>
+<p>这个项目的webpack配置我是在vue-cli的项目上进行修改的，可以用于React的项目构建。目前只要开发环境和生产环境这两个环境，可能一些公司有多个环境，每个环境下webpack的配置还不同，此时可以根据不同环境建一个文件名格式为“webpack.&lt;环境名&gt;.conf.js”的webpack配置使用。webpack.base.conf.js里面有一些基本配置比如rules、input、output的等配置，一般来说每个环境下这些大致都是相同，一些不同之处可以用webpack-merge插件进行合并。一般来说大多数项目来说开发环境和生产环境两个webpack配置足够了</p>
+<p><code>config</code><br>这里存放着不同环境webpack所需要的配置参数。</p>
+<p>dev.env.js —- 向外暴露开发环境下的环境变量NODE_ENV<br>index.js —- 存放不同环境的配置参数<br>prod.env.js —- 向外暴露生产环境下的环境变量NODE_ENV</p>
+<p>如果你需要再加一个环境的话，可以建一个文件名为“&lt;环境名&gt;.env.js”并向外暴露环境变量NODE_ENV，然后在index.js中导入，进行相关参数设置<br><code>mock</code><br>这里是用来做接口的mock的，可能很多公司都不太用，我在工作也很少去mock。这里介绍一下自己的接口mock思路，这里我选择mockjs加上json-server的组合。二者具体的使用，大家可以查看其官方文档。</p>
+<p>api —- 存放不同api所对应的数据<br>index.js —- json-server的主文件<br>routes.json —- 路由的映射<br>package.json我配置一个script，如下：</p>
+<pre class=" language-js"><code class="language-js"><span class="token string">"mock"</span><span class="token punctuation">:</span> <span class="token string">"json-server mock/index.js --port 3000 --routes mock/routes.json"</span></code></pre>
+<p>控制台执行“npm run mock“即可。</p>
+<h1 id="src"><a href="#src" class="headerlink" title="src"></a>src</h1><p><code>url.js</code></p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  fetchUserInfo<span class="token punctuation">:</span><span class="token punctuation">{</span>
+    method<span class="token punctuation">:</span><span class="token string">'get'</span><span class="token punctuation">,</span>
+    url<span class="token punctuation">:</span><span class="token string">'/api/user'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  fetchAuthorInfo<span class="token punctuation">:</span><span class="token punctuation">{</span>
+    method<span class="token punctuation">:</span><span class="token string">'get'</span><span class="token punctuation">,</span>
+    url<span class="token punctuation">:</span><span class="token string">'/api/author'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  fetchUserList<span class="token punctuation">:</span><span class="token punctuation">{</span>
+    method<span class="token punctuation">:</span><span class="token string">'get'</span><span class="token punctuation">,</span>
+    url<span class="token punctuation">:</span><span class="token string">'/api/userList'</span>
   <span class="token punctuation">}</span>
-  render <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
+<p><code>index.js</code></p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> _ <span class="token keyword">from</span> <span class="token string">'lodash'</span>
+<span class="token keyword">import</span> http <span class="token keyword">from</span> <span class="token string">'@/utils/http'</span>
+<span class="token keyword">import</span> API_URL <span class="token keyword">from</span> <span class="token string">'./url'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">mapUrlObjToFuncObj</span><span class="token punctuation">(</span>urlObj<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">const</span> API <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  _<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>urlObj<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> item <span class="token operator">=</span> urlObj<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+    API<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">return</span> http<span class="token punctuation">[</span>item<span class="token punctuation">.</span>method<span class="token punctuation">]</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>url<span class="token punctuation">,</span>params<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> API<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">mapUrlObjToStrObj</span><span class="token punctuation">(</span>urlObj<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">const</span> Url <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  _<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>urlObj<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> item <span class="token operator">=</span> urlObj<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+    Url<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token operator">=</span>item<span class="token punctuation">.</span>url
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> Url<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> API <span class="token operator">=</span> <span class="token function">mapUrlObjToFuncObj</span><span class="token punctuation">(</span>API_URL<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> URL <span class="token operator">=</span> <span class="token function">mapUrlObjToStrObj</span><span class="token punctuation">(</span>API_URL<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>这里我们用来放置api的接口地址，为了后续的接口维护，我们在使用的过程中不会直接写死接口地址，而是将接口请求封装成一个个方法。通过对接口的统一维护，我们就可以做到在执行修改接口地址、修改请求方法、新增接口等等操作时，就不用在整个项目里到处找了，只要维护好url.js向外暴露的对象即可。使用方法如下：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>API<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/api'</span>
+<span class="token comment" spellcheck="true">//params为请求参数</span>
+API<span class="token punctuation">.</span><span class="token function">fetchUserInfo</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>response<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//response为返回值</span>
+    <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p><code>assets</code><br>这里我们会放项目的所需要图片资源，这些图片资源一般来说都是做图标的，都比较小。webpack会将其转化成BASE64去使用。如果你不想以这种方式使用，可以在static目录下存放图片资源。</p>
+<p><code>components</code><br>这里存放整个项目所用到的公共组件。定一个组件，这里要求是新建一个文件夹，文件夹名为组件名，另外在这个文件夹下新建index.jsx和style.scss文件。例如做一个HelloWorld组件，则应该是如下结构。</p>
+<p><code>HelloWorld</code></p>
+<pre class=" language-JS"><code class="language-JS">index.jsx
+style.scss //存放组件的样式</code></pre>
+<p>index.js</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./style.scss'</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">HelloWorld</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span><span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span>
-      <span class="token operator">&lt;</span>form onSubmit<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleSubmit<span class="token punctuation">}</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>input
-          type<span class="token operator">=</span><span class="token string">'text'</span>
-          ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span>input <span class="token operator">=</span> input<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>button type<span class="token operator">=</span><span class="token string">'submit'</span><span class="token operator">></span>Submit<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
-      <span class="token operator">&lt;</span><span class="token operator">/</span>form<span class="token operator">></span>
+      <span class="token operator">&lt;</span>h4 className<span class="token operator">=</span><span class="token string">"u-text"</span><span class="token operator">></span>Hello World<span class="token operator">&lt;</span><span class="token operator">/</span>h4<span class="token operator">></span>
     <span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> HelloWorld<span class="token punctuation">;</span></code></pre>
+<p>style.scss</p>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">.</span>u<span class="token operator">-</span>text<span class="token punctuation">{</span>
+  color<span class="token punctuation">:</span> red<span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<p>上述代码中的input域包含了一个ref属性，该属性声明的回调函数会接收input对应的 DOM 元素，我们将其绑定到this指针以便在其他的类函数中使用。另外值得一提的是，refs 并不是类组件的专属，函数式组件同样能够利用闭包暂存其值：</p>
-<pre class=" language-js"><code class="language-js">上述代码中的input域包含了一个ref属性，该属性声明的回调函数会接收input对应的 DOM 元素，我们将其绑定到<span class="token keyword">this</span>指针以便在其他的类函数中使用。另外值得一提的是，refs 并不是类组件的专属，函数式组件同样能够利用闭包暂存其值：
-
-<span class="token keyword">function</span> CustomForm <span class="token punctuation">(</span><span class="token punctuation">{</span>handleSubmit<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">let</span> inputElement
-  <span class="token keyword">return</span> <span class="token punctuation">(</span>
-    <span class="token operator">&lt;</span>form onSubmit<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">handleSubmit</span><span class="token punctuation">(</span>inputElement<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">></span>
-      <span class="token operator">&lt;</span>input
-        type<span class="token operator">=</span><span class="token string">'text'</span>
-        ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> inputElement <span class="token operator">=</span> input<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
-      <span class="token operator">&lt;</span>button type<span class="token operator">=</span><span class="token string">'submit'</span><span class="token operator">></span>Submit<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>form<span class="token operator">></span>
-  <span class="token punctuation">)</span>
-<span class="token punctuation">}</span></code></pre>
-<p><code>React 中 keys 的作用是什么？</code><br>Keys 是 React 用于追踪哪些列表中元素被修改、被添加或者被移除的辅助标识。</p>
-<pre class=" language-js"><code class="language-js">render <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span>
-    <span class="token operator">&lt;</span>ul<span class="token operator">></span>
-      <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>todoItems<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">{</span>task<span class="token punctuation">,</span> uid<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token operator">&lt;</span>li key<span class="token operator">=</span><span class="token punctuation">{</span>uid<span class="token punctuation">}</span><span class="token operator">></span><span class="token punctuation">{</span>task<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span>
-  <span class="token punctuation">)</span>
-<span class="token punctuation">}</span></code></pre>
-<p>在开发过程中，我们需要保证某个元素的 key 在其同级元素中具有唯一性。在 React Diff 算法中 React 会借助元素的 Key 值来判断该元素是新近创建的还是被移动而来的元素，从而减少不必要的元素重渲染。此外，React 还需要借助 Key 值来判断元素与本地状态的关联关系，因此我们绝不可忽视转换函数中 Key 的重要性。</p>
-<p><code>在生命周期中的哪一步你应该发起 AJAX 请求？</code></p>
-<p>我们应当将AJAX 请求放到 componentDidMount 函数中执行，主要原因有下：</p>
-<p>React 下一代调和算法 Fiber 会通过开始或停止渲染的方式优化应用性能，其会影响到 componentWillMount 的触发次数。对于 componentWillMount 这个生命周期函数的调用次数会变得不确定，React 可能会多次频繁调用 componentWillMount。如果我们将 AJAX 请求放到 componentWillMount 函数中，那么显而易见其会被触发多次，自然也就不是好的选择。</p>
-<p>如果我们将 AJAX 请求放置在生命周期的其他函数中，我们并不能保证请求仅在组件挂载完毕后才会要求响应。如果我们的数据请求在组件挂载之前就完成，并且调用了setState函数将数据添加到组件状态中，对于未挂载的组件则会报错。而在 componentDidMount 函数中进行 AJAX 请求则能有效避免这个问题。</p>
-<p><code>shouldComponentUpdate 的作用是啥以及为何它这么重要？</code><br>shouldComponentUpdate 允许我们手动地判断是否要进行组件更新，根据组件的应用场景设置函数的合理返回值能够帮我们避免不必要的更新。</p>
-<p><code>如何告诉 React 它应该编译生产环境版本？</code><br>通常情况下我们会使用 Webpack 的 DefinePlugin 方法来将 NODE_ENV 变量值设置为 production。编译版本中 React 会忽略 propType 验证以及其他的告警信息，同时还会降低代码库的大小，React 使用了 Uglify 插件来移除生产环境下不必要的注释等信息。</p>
-<p><code>概述下 React 中的事件处理逻辑</code><br>为了解决跨浏览器兼容性问题，React 会将浏览器原生事件（Browser Native Event）封装为合成事件（SyntheticEvent）传入设置的事件处理器中。这里的合成事件提供了与原生事件相同的接口，不过它们屏蔽了底层浏览器的细节差异，保证了行为的一致性。另外有意思的是，React 并没有直接将事件附着到子元素上，而是以单一事件监听器的方式将所有的事件发送到顶层进行处理。这样 React 在更新 DOM 的时候就不需要考虑如何去处理附着在 DOM 上的事件监听器，最终达到优化性能的目的。</p>
-<p><code>传入 setState 函数的第二个参数的作用是什么？</code><br>该函数会在setState函数调用完成并且组件开始重渲染的时候被调用，我们可以用该函数来监听渲染是否完成：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span>
-  <span class="token punctuation">{</span> username<span class="token punctuation">:</span> <span class="token string">'tylermcginnis33'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'setState has finished and the component has re-rendered.'</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span></code></pre>
+<p><code>layouts</code><br>这里存放着布局文件。关于这个布局文件我是这么去定义它的，我在开发过程中有一些页面他们的某一部分都是相同，早之前可能大家可能会在一个React组件加<switch>和<route>去实现这个功能，可以这么干，没毛病。但是这个有一个不好点就是你的路由没法做统一的管理，分散在各个组件中，给后续的维护带来很多问题。为了解决这个，我选择利用props.children结合标签嵌套的方式去完成</route></switch></p>
+<p><code>pages</code><br>这里的存放的都是页面级组件，跟react-router对应的路由需要一一对应。每个页面都是一个文件夹，文件名就是页面名称，每个页面都要包含如下几个文件：</p>
+<p>components —- 存放当前页独有的一些组件<br>redux —- 存放三个文件actions.js、actionTypes.js、reducer.js,这几个文件应该只与这个页面相关<br>index.jsx —- 页面的入口文件<br>style.scss —- 页面所需要的样式<br>具体代码可以自行git clone 项目查看，这里就不贴出来了。<br>``scss<code>这里存放共有的scss文件，比较一些常用的功能类、@mixin、@function等等。</code>store`<br>这里有四个文件：</p>
+<p>actions.js<br>actionTypes.js<br>reducer.js<br>index.js<br>我们知道每个页面都有自己的actions.js、actionTypes.js、reducer.js，但是这里是全局的，另外index.js会向外暴露store，然后再main.js中引入使用。</p>
+<p><code>utils</code><br>这里会存放一些自己的封装的js工具文件，比如我在项目基于axios封装了一个http.js,简化了axios的操作。<br><code>templates</code><br>这里存放着页面和组件级别构建所需要的模板文件，页面级别构建提供了两种模板PageReducer（集成了reducer）和PageSample（不集成reducer），而组件只提供了一种模板ComSample。页面和组件级别的构建是需要配合asuna-cli才能构建，目前项目已经集成了asuna-cli。package.json写了两个script：npm run newPage（页面构建）和npm run newComponent（组件构建）<br><code>其他文件</code><br>.babelrc —- babel转换的配置文件<br>.gitignore —- git操作所需要忽略的文件<br>.postcssrc.js —- postcss的配置文件<br>index.html —- 模板index.html,webpack会根据此生成新的index.html,配合html-webpack-plugin使用<br>package.json —- 家喻户晓的东西<br>README.md —- 项目说明<br>theme.js —- ant-design的主题色配置文件，具体使用可以参考ant-design<br>asuna.config.js —- asuna-cli的配置文件<br>yarn.lock —- 锁定包的版本</p>
 
             </div>
             <hr/>
@@ -509,9 +535,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《React 常见问题》
+                    《React 项目目录结构分析》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/17/w14/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/18/w15/" property="cc:attributionName"
                rel="cc:attributionURL">
                 John Doe
             </a> 采用
@@ -555,20 +581,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/18/w15/">
+                <a href="/2019/09/18/vue/vue1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="React 项目目录结构分析">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Vue 基础（一）">
                         
-                        <span class="card-title">React 项目目录结构分析</span>
+                        <span class="card-title">Vue 基础（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            build这个文件主要放了一些与webpack打包的相关文件。
-build.js —- webpack打包脚本，用于构建生产环境的包check-versions.js —- 主要检测当前打包环境的node以及npm的版本是否符合要求util
+                            vue 使用框架后，是改变的一个 思想：数据驱动
+在vue中我们使用@绑定一个事件，或者用v-on 
+@click=""这里面可以直接写一个表达式，
+@是 v-on 的简写
+v-xx 以v-开头的是是vue中的指令
+v-model 事项数据
                         
                     </div>
                     <div class="publish-info">
@@ -579,8 +609,8 @@ build.js —- webpack打包脚本，用于构建生产环境的包check-versions
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/React/" class="post-category" target="_blank">
-                                    React
+                            <a href="/categories/Vue/" class="post-category" target="_blank">
+                                    Vue
                                 </a>
                             
                             
@@ -590,8 +620,8 @@ build.js —- webpack打包脚本，用于构建生产环境的包check-versions
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/React-项目目录结构分析/" target="_blank">
-                        <span class="chip bg-color">React 项目目录结构分析</span>
+                    <a href="/tags/Vue-基础（一）/" target="_blank">
+                        <span class="chip bg-color">Vue 基础（一）</span>
                     </a>
                     
                 </div>
@@ -605,26 +635,24 @@ build.js —- webpack打包脚本，用于构建生产环境的包check-versions
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/09/w13/">
+                <a href="/2019/09/17/w14/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="React umi  immutable & mobx">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="React 常见问题">
                         
-                        <span class="card-title">React umi  immutable & mobx</span>
+                        <span class="card-title">React 常见问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            全局安装：npm install -g umi创建文件：umi g page index (在page里创建一个css文件，和js文件)直接启动，会给loal地址：umi dev
-1.导航跳转，要引入导航文件，代码如下：
-// 引入导航文件
+                            调用 setState 之后发生了什么？在代码中调用setState函数之后，React 会将传入的参数对象与组件当前的状态合并，然后触发所谓的调和过程（Reconciliation）。经过调和过程，React 会以相对高效的方式根据新的状
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-09
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-17
                             </span>
                         <span class="publish-author">
                             
@@ -641,8 +669,8 @@ build.js —- webpack打包脚本，用于构建生产环境的包check-versions
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/React-umi-immutable-mobx/" target="_blank">
-                        <span class="chip bg-color">React umi immutable &amp; mobx</span>
+                    <a href="/tags/React-常见问题/" target="_blank">
+                        <span class="chip bg-color">React 常见问题</span>
                     </a>
                     
                 </div>

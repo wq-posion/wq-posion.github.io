@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="React umi, 等风来">
+    <meta name="keywords" content="React umi  immutable &amp; mobx, 等风来">
     <meta name="description" content="全局安装：npm install -g umi创建文件：umi g page index (在page里创建一个css文件，和js文件)直接启动，会给loal地址：umi dev
 1.导航跳转，要引入导航文件，代码如下：
 // 引入导航文件">
@@ -15,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>React umi | 等风来</title>
+    <title>React umi  immutable &amp; mobx | 等风来</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -262,13 +262,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        React umi
+                        React umi  immutable &amp; mobx
                     </div>
                 </div>
             </div>
@@ -379,8 +379,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/React-umi/" target="_blank">
-                                <span class="chip bg-color">React umi</span>
+                            <a href="/tags/React-umi-immutable-mobx/" target="_blank">
+                                <span class="chip bg-color">React umi immutable &amp; mobx</span>
                             </a>
                         
                     </div>
@@ -461,6 +461,55 @@
     <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 <p>document.ejs定义，html整个生命模板,全局约定<br>global.css 是组件开发，每个js,每个组件都有自己的行为逻辑，约定全局样式文件， 自动引入，（和page并列建立文件）,用类名className也可以改动全局样式，<br>config.js  或者umirc.js  和框架一起使用，<br>安装依赖：npm i umi-plugin-react –save-dev  </p>
+<h1 id="immutable"><a href="#immutable" class="headerlink" title="immutable"></a>immutable</h1><p>Immutable Data 就是一旦创建，就不能再被更改的数据。对 Immutable 对象的任何修改或添加删除操作都会返回一个新的 Immutable 对象。Immutable 实现的原理是 Persistent Data Structure（持久化数据结构），也就是使用旧数据创建新数据时，要保证旧数据同时可用且不变。同时为了避免 deepCopy 把所有节点都复制一遍带来的性能损耗，Immutable 使用了Structural Sharing（结构共享），即如果对象树中一个节点发生变化，只修改这个节点和受它影响的父节点，其它节点则进行共享。</p>
+<p>优点：</p>
+<ol>
+<li>降低 Mutable 带来的复杂度  （引用赋值虽然可以节省内存，但当应用复杂之后，可变状态往往会变成噩梦，通常一般的做法是使用shallowCopy或者deepCopy来避免被修改，但这样造成了CPU和内存的消耗，不过Immulate可以很好地解决这些问题）</li>
+<li>节省内存空间－结构共享，Immutable.js 使用这种方式会尽量复用内存，甚至以前使用的对象也可以再次被复用。没有被引用的对象会被垃圾回收</li>
+<li>Undo/Redo，Copy/Paste，随意穿越！ (因为每次数据都是不一样的，只要把这些数据放到一个数组里储存起来，想回退到哪里就拿出对应数据即可，很容易开发出撤销重做这种功能。)</li>
+<li>拥抱函数式编程 (mmutable（持久化数据结构）本身就是函数式编程中的概念。函数式编程关心数据的映射，命令式编程关心解决问题的步骤，纯函数式编程比面向对象更适用于前端开发。因为只要输入一致，输出必然一致，这样开发的组件更易于调试和组装。)</li>
+</ol>
+<p>缺点：1. 容易与原生对象混  2、学习成本高  3、库大小  4、对现有项目入侵严重</p>
+<h1 id="深拷贝-amp-浅拷贝"><a href="#深拷贝-amp-浅拷贝" class="headerlink" title="深拷贝&amp;浅拷贝"></a>深拷贝&amp;浅拷贝</h1><p>(如何区分：就是假设B复制了A，当修改A时，看B是否会发生变化，如果B也跟着变了，说明这是浅拷贝，拿人手短，如果B没变，那就是深拷贝，自食其力)</p>
+<p><code>深拷贝实现：</code><br>1、object-assign－－ Object.assign()是一种可以对非嵌套对象进行深拷贝的方法，如果对象中出现嵌套情况,层级比较多的情况，那么其对被嵌套对象的行为就成了普通的浅拷贝</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj1<span class="token operator">=</span><span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span><span class="token string">'小明'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">,</span>
+    a<span class="token punctuation">:</span><span class="token punctuation">{</span>
+         b<span class="token punctuation">:</span><span class="token number">10</span>
+   <span class="token punctuation">}</span>
+  <span class="token keyword">var</span> obj2<span class="token operator">=</span>Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>obj1<span class="token punctuation">)</span>
+  obj2<span class="token punctuation">.</span>name<span class="token operator">=</span><span class="token string">'hello'</span>   <span class="token comment" spellcheck="true">//深拷贝</span>
+  obj2<span class="token punctuation">.</span>a<span class="token punctuation">.</span>b<span class="token operator">=</span><span class="token string">'hello'</span>    <span class="token comment" spellcheck="true">//浅拷贝</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span></code></pre>
+<p>2、用JSON.stringify把对象转成字符串，再用JSON.parse把字符串转成新的对象。<br>但这种方法的缺陷是会破坏原型链，并且无法拷贝属性值为function的属性</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj1<span class="token operator">=</span><span class="token punctuation">{</span>
+     name<span class="token punctuation">:</span><span class="token string">'小明'</span><span class="token punctuation">,</span>
+     age<span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">,</span>
+    a<span class="token punctuation">:</span><span class="token punctuation">{</span>
+         b<span class="token punctuation">:</span><span class="token number">10</span>
+     <span class="token punctuation">}</span><span class="token punctuation">,</span>
+     fn<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span class="token keyword">var</span> obj2<span class="token operator">=</span>JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span><span class="token punctuation">)</span> 
+
+   obj2<span class="token punctuation">.</span>name<span class="token operator">=</span><span class="token string">'hello'</span>  <span class="token comment" spellcheck="true">//深拷贝</span>
+   obj2<span class="token punctuation">.</span>a<span class="token punctuation">.</span>b<span class="token operator">=</span><span class="token string">'hello'</span>   <span class="token comment" spellcheck="true">//浅拷贝</span>
+
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span></code></pre>
+<p>3.递归</p>
+<h1 id="immutable-1"><a href="#immutable-1" class="headerlink" title="immutable"></a>immutable</h1><p>1.brower端引入脚本<br>2.npm导入  (npm install immutable)<br><code>Immutable数据类型&amp;方法</code></p>
+<p>List: 有序索引集，类似JavaScript中的Array。（主要）<br>Map: 无序索引集，类似JavaScript中的Object。（主要）<br>Map.isMap(): 判断。<br>List.isList():判断。<br>obj.equals(obj1) ||  is(obj,obj1)  ：判断obj，obj1是否相等<br>toJS()：转换成js对象<br>fromJS()嵌套数据</p>
+<p>（1）List是有序的索引密集集合，非常类似于JavaScript数组<br>（2）set是设置值，get是获取值 setIn([a,b],xxx)  getIn([a,b]) 深层次获取设置<br>    修改 update(a,(xxx)=&gt;{return xxx})  updateIn([a,b],()=&gt;{}) mergeDeep()修改<br>    删除 delete(a)  deleteIn([a,b])<br>（3）toJS()是转译为普通的js  </p>
+<pre class=" language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj11<span class="token punctuation">.</span><span class="token function">toJS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>（4）Map非常类似于JavaScript对象</p>
+<h1 id="Mobx"><a href="#Mobx" class="headerlink" title="Mobx"></a>Mobx</h1><p>简单、可扩展的状态管理,MobX 是由 Mendix、Coinbase、Facebook 开源和众多个人赞助商所赞助的。<br>MobX 让整个事情又变简单了：它不允许产生失控的 state。它的理念也很简单：所有可以从 state 中派生的事物，都会自动的派生</p>
+<p>安装: npm install mobx –save<br>React 绑定库: npm install mobx-react –save</p>
+<p>1、定义一个状态对象, 它具有可观察的属性, 我们将它称为 observable<br>首先我们需要定义一个状态对象<br>将其转化为可观察状态，将状态对象传递给 mobx observable()<br>2、创建一个react组件, 它能够响应 observable 的变化, 我们将它称为 observer创建一个 React 组件.<br>将其转化为 响应 observable 的组件，使用 mobx-react observer() 来包裹它.<br><br>3、将appstate以props形式传入observer监听的组件内<br>4、定义更改状态的函数, 我们将它称为 action创建一个函数来更改 observable.<br>使用 mobx action来包裹它.<br>5、组件内部使用该函数   (以上便是mobx的要点使用，也就是mobx的原则，以action驱动state，state驱动views的更改。也就是动作改变状态，而状态的改变会更新所有受影响的视图<br>)</p>
 
             </div>
             <hr/>
@@ -495,7 +544,7 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《React umi》
+                    《React umi  immutable &amp; mobx》
                 </span> 由
             <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/09/w13/" property="cc:attributionName"
                rel="cc:attributionURL">
