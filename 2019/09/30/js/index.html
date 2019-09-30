@@ -4,13 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Vue 基础（一）, 等风来">
-    <meta name="description" content="vue 使用框架后，是改变的一个 思想：数据驱动
-在vue中我们使用@绑定一个事件，或者用v-on 
-@click=&#34;&#34;这里面可以直接写一个表达式，
-@是 v-on 的简写
-v-xx 以v-开头的是是vue中的指令
-v-model 事项数据">
+    <meta name="keywords" content="综合基础问题回顾, 等风来">
+    <meta name="description" content="对前端工程师日常的开发流程的理解
+接到原型图/UI图分析确定功能点，看有没有难点需要预研拆分任务，确定接口，规划时间写代码,中途遇到的坑，在一个地方记录下来确保代码质量(可读性、可维护性)，提交代码自测发布测试修改BUG上线
+css的lin">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +15,7 @@ v-model 事项数据">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Vue 基础（一） | 等风来</title>
+    <title>综合基础问题回顾 | 等风来</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -265,13 +262,13 @@ v-model 事项数据">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Vue 基础（一）
+                        综合基础问题回顾
                     </div>
                 </div>
             </div>
@@ -382,8 +379,8 @@ v-model 事项数据">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Vue-基础（一）/" target="_blank">
-                                <span class="chip bg-color">Vue 基础（一）</span>
+                            <a href="/tags/综合基础问题回顾/" target="_blank">
+                                <span class="chip bg-color">综合基础问题回顾</span>
                             </a>
                         
                     </div>
@@ -394,8 +391,8 @@ v-model 事项数据">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Vue/" class="post-category" target="_blank">
-                                Vue
+                            <a href="/categories/解析/" class="post-category" target="_blank">
+                                解析
                             </a>
                         
                     </div>
@@ -406,7 +403,7 @@ v-model 事项数据">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-18
+                    2019-09-30
                 </div>
 
                 
@@ -422,58 +419,52 @@ v-model 事项数据">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class=" language-js"><code class="language-js">vue 使用框架后，是改变的一个 思想：数据驱动
-在vue中我们使用@绑定一个事件，或者用v<span class="token operator">-</span>on 
-@click<span class="token operator">=</span><span class="token string">""</span>这里面可以直接写一个表达式，
-@是 v<span class="token operator">-</span>on 的简写
-v<span class="token operator">-</span>xx 以v<span class="token operator">-</span>开头的是是vue中的指令
-v<span class="token operator">-</span>model 事项数据的双向绑定，表单数据和data中的值进行绑定
-v<span class="token operator">-</span><span class="token keyword">for</span> 实现循环指令，循环数组，对象，字符串，数字，在循环的过程中建议每一项加一个key的值，用于在页面更新的时候做优化处理
-v<span class="token operator">-</span>bind 数据绑定。可以为标签动态的绑定一个属性，可以简写为 ：
-v<span class="token operator">-</span>show 控制标签的显示和隐藏，<span class="token boolean">true</span>显示，<span class="token boolean">false</span>是隐藏，控制display（只控制标签的显示和隐藏）
-v<span class="token operator">-</span><span class="token keyword">if</span> 控制是否页面上展示元素，（是直接把标签从dom元素中进行删除和添加）还<span class="token keyword">else</span><span class="token operator">-</span><span class="token keyword">if</span>   <span class="token operator">/</span>   v<span class="token operator">-</span><span class="token keyword">else</span>
-computed 为计算属性，会对数据做缓存，如果数据没有改变会读取缓存的数据
-el 表示实例的作用范围
-    <span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">}</span>  插入数据组
-v<span class="token operator">-</span>text  绑定文本内容
-v<span class="token operator">-</span>html 绑定富文本内容</code></pre>
-<p>注册全局组件</p>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
-<span class="token comment" spellcheck="true">//    注册全局组件</span>
-    Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'v-head'</span><span class="token punctuation">,</span>Vue<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        template<span class="token punctuation">:</span><span class="token template-string"><span class="token string">`
-                &lt;div>
-                   &lt;div>hello--{{info}}
-                    &lt;button @click="tap()">事件&lt;/button> 
-                   &lt;/div>
-                   &lt;div>另一段结构&lt;/div>
-
-                &lt;/div>    
-        `</span></span><span class="token punctuation">,</span>
-
-  简写
-  <span class="token keyword">var</span> con<span class="token operator">=</span>Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'v-con'</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
-        template<span class="token punctuation">:</span><span class="token string">'&lt;div>简写&lt;/div>'</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<h1 id="计算属性和方法调用的区别"><a href="#计算属性和方法调用的区别" class="headerlink" title="计算属性和方法调用的区别"></a>计算属性和方法调用的区别</h1><p>计算属性会有缓存，当依赖数据没有改变的时候会读取缓存值<br>方法在使用的时候需要加括号，不会对数据进行缓存</p>
-<p>watch 监听某一个数据的改变而执行一些操作<br>filter 过滤器可以连续使用，用|管道连接符进行操作，当多个过滤器连接的时候后一个把前几个的返回值当参数使用</p>
-<p>组件基础用法<br>在vue中组件就是一个对象，template：表示组件显示的模板，只有一个根节点，<br>data（必须）是 一个方法，方法返回一个对象作为组件可以使用的参数<br>methods 是组件可以使用的方法</p>
-<p>传参，<br>父组件向子组件传参， 使用props（属性）<br>子组件向父组件传参  事件派发和监听遵循一个原则（主体一致，谁监听谁派发）</p>
-<h1 id="列举-Vue-中的事件修饰符"><a href="#列举-Vue-中的事件修饰符" class="headerlink" title="列举 Vue 中的事件修饰符"></a>列举 Vue 中的事件修饰符</h1><p>.stop：等同于JavaScript中的event.stopPropagation()，防止事件冒泡（冒泡事件：嵌套两三层父子关系，然后所有都有点击事件，点击子节点，就会触发从内至外  子节点-》父节点的点击事件，防止冒泡事件的写法是：在点击上加上.stop相当于在每个方法中调用了等同于event.stopPropagation()，点击子节点不会捕获到父节点的事件）<br>.prevent：等同于JavaScript中的event.preventDefault()，防止执行预设的行为（如果事件可取消，则取消该事件，而不停止事件的进一步传播）<br>.capture：与事件冒泡的方向相反，事件捕获由外到内（捕获事件：嵌套两三层父子关系，然后所有都有点击事件，点击子节点，就会触发从外至内  父节点-》子节点的点击事件）<br>.self：只会触发自己范围内的事件，不包含子元素<br>.once：只会触发一次（如果我们在@click事件上添加.once修饰符，只要点击按钮只会执行一次。）<br>. passive：该修饰符大概意思用于对DOM的默认事件进行性能优化，根据官网的例子比如超出最大范围的滚动条滚动的             方法<br>.键盘修饰符<br>在JavaScript事件中除了前面所说的事件，还有键盘事件，也经常需要监测常见的键值。在Vue中允许v-on在监听键盘事件时添加关键修饰符。</p>
-<h1 id="vue路由守卫（全局守卫）"><a href="#vue路由守卫（全局守卫）" class="headerlink" title="vue路由守卫（全局守卫）"></a>vue路由守卫（全局守卫）</h1><p>router.beforeEach((to,from,next)=&gt;{})<br>回调函数中的参数，<br>to：进入到哪个路由去，<br>from：从哪个路由离开，<br>next：函数，决定是否展示你要看到的路由页面</p>
-<p>如下，判断to.path当前将要进入的路径是否为登录或注册，如果是就执行next()，展示当前界面。如果不是，就弹出alert，然后移至登录界面。<br>这样就可实现，用户在未登录状态下，展示的一直是登录界面。</p>
-<pre class=" language-js"><code class="language-js">router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">,</span>next<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-  <span class="token keyword">if</span><span class="token punctuation">(</span>to<span class="token punctuation">.</span>path <span class="token operator">==</span> <span class="token string">'/login'</span> <span class="token operator">||</span> to<span class="token punctuation">.</span>path <span class="token operator">==</span> <span class="token string">'/register'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'您还没有登录，请先登录'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">next</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<h1 id="全局后置钩子router-afterEach-to-from-gt"><a href="#全局后置钩子router-afterEach-to-from-gt" class="headerlink" title="全局后置钩子router.afterEach((to,from)=&gt;{})"></a>全局后置钩子router.afterEach((to,from)=&gt;{})</h1><p>只有两个参数，<br>to：进入到哪个路由去，<br>from：从哪个路由离。<br>如下，每次切换路由时，都会弹出alert，点击确定后，展示当前页面。</p>
-<pre class=" language-js"><code class="language-js">router<span class="token punctuation">.</span><span class="token function">afterEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"after each"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+                <p><code>对前端工程师日常的开发流程的理解</code></p>
+<p>接到原型图/UI图<br>分析确定功能点，看有没有难点需要预研<br>拆分任务，确定接口，规划时间<br>写代码,中途遇到的坑，在一个地方记录下来<br>确保代码质量(可读性、可维护性)，提交代码<br>自测<br>发布测试<br>修改BUG<br>上线</p>
+<p><code>css的linear-gradient的作用</code></p>
+<p>Gradient 是渐变，CSS3目前有三种渐变方式：<br>linear-gradient 线性渐变<br>radial-gradient 径向渐变<br>conic-gradient 圆锥渐变</p>
+<p><code>Shadow DOM和Virtual DOM有什么区别</code><br>Shadow DOM是浏览器提供的一个可以允许将隐藏的DOM树添加到常规的DOM树中——它以shadow root为起始根节点，在这个根节点的下方，可以是任意元素，和普通的DOM元素一样。</p>
+<p>Virtual DOM<br>虚拟DOM是由js实现的避免DOM树频繁更新，通过js的对象模拟DOM中的节点，然后通过特定的render方法将它渲染成真实的节点，数据更新时，渲染得到新的 Virtual DOM，与上一次得到的 Virtual DOM 进行 diff，得到所有需要在 DOM 上进行的变更，然后在 patch 过程中应用到 DOM 上实现UI的同步更新。</p>
+<p><code>页面导入样式时，使用link和@import有什么区别？</code><br>1）从属关系的区别：link属于XHTML标签，而@import是CSS提供的语法规则，link除了加载CSS，还可以定义RSS，定义rel连接属性等，@import就只能加载CSS。<br>2）加载顺序的区别：页面加载时，link会同时被加载，而@import引用的CSS会等页面被加载完后再加载。<br>3）兼容性的区别：@import只有IE5以上才能被识别，而link是XHTML标签，无兼容问题。<br>4）DOM可控性区别：通过js操作DOM,可以插入link标签来改变样式；由于DOM方法是基于文档的，无法使用@import方式插入样式</p>
+<p><code>圣杯布局和双飞翼布局的理解和区别</code></p>
+<p>作用：圣杯布局和双飞翼布局解决的问题是一样的，就是两边顶宽，中间自适应的三栏布局，中间栏要在放在文档流前面以优先渲染。<br>  区别：圣杯布局，为了中间div内容不被遮挡，将中间div设置了左右padding-left和padding-right后，将左右两个div用相对布局position: relative并分别配合right和left属性，以便左右两栏div移动后不遮挡中间div。双飞翼布局，为了中间div内容不被遮挡，直接在中间div内部创建子div用于放置内容，在该子div里用margin-left和margin-right为左右两栏div留出位置。</p>
+<p><code>用递归算法实现，数组长度为5且元素的随机数在2-32间不重复的值</code><br>a) 生成一个长度为5的空数组arr。<br>b) 生成一个（2－32）之间的随机整数rand。<br>c) 把随机数rand插入到数组arr内，如果数组arr内已存在与rand相同的数字，则重新生成随机数rand并插入到arr内需要使用递归实现，不能使用for/while等循环<br>d) 最终输出一个长度为5，且内容不重复的数组arr。<br>代码如下：</p>
+<pre class=" language-js"><code class="language-js"> <span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> num <span class="token operator">=</span> <span class="token function">randomNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">randomArr</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">randomArr</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> num<span class="token punctuation">;</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            num <span class="token operator">=</span> <span class="token function">randomNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token operator">>=</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token function">randomArr</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>num<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">function</span> <span class="token function">randomNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">31</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span></code></pre>
+<p><code>html的元素有哪些（包含H5）？</code><br>块级元素：</p>
+<p>head -<br>meat - 申明页面的诸多属性<br>title - 窗口标题<br>style - 样式<br>body - 文本内容<br>header - 头部块<br>section - 内容块<br>footer - 底部块<br>article - 文章标签<br>aside<br>nav<br>menu<br>bir<br>hr - 下划线<br>h1-h6 描述标题<br>div<br>p<br>ul<br>li<br>ol<br>oi<br>dl<br>dt<br>dd<br>form<br>table<br>theader<br>tbody<br>tr<br>th<br>行内元素</p>
+<p>label<br>a<br>span<br>td<br>input<br>button<br>strong<br>b<br>i<br>去除的元素</p>
+<p>font</p>
+<p><code>CSS3有哪些新增的特性？</code><br>边框(borders):<br>border-radius 圆角<br>box-shadow 盒阴影<br>border-image 边框图像<br>背景:<br>background-size 背景图片的尺寸<br>background_origin 背景图片的定位区域<br>background-clip 背景图片的绘制区域<br>渐变：<br>linear-gradient 线性渐变<br>radial-gradient 径向渐变<br>文本效果;<br>word-break<br>word-wrap<br>text-overflow<br>text-shadow<br>text-wrap<br>text-outline<br>text-justify<br>转换：<br>2D转换属性<br>transform<br>transform-origin<br>2D转换方法<br>translate(x,y)<br>translateX(n)<br>translateY(n)<br>rotate(angle)<br>scale(n)<br>scaleX(n)<br>scaleY(n)<br>rotate(angle)<br>matrix(n,n,n,n,n,n)<br>3D转换：<br>*3D转换属性：</p>
+<p>transform<br>transform-origin<br>transform-style<br>3D转换方法<br>translate3d(x,y,z)<br>translateX(x)<br>translateY(y)<br>translateZ(z)<br>scale3d(x,y,z)<br>scaleX(x)<br>scaleY(y)<br>scaleZ(z)<br>rotate3d(x,y,z,angle)<br>rotateX(x)<br>rotateY(y)<br>rotateZ(z)<br>perspective(n)<br>过渡<br>transition<br>动画<br>@Keyframes规则<br>animation<br>弹性盒子(flexbox)</p>
+<p><code>在页面上隐藏元素的方法有哪些</code></p>
+<pre class=" language-js"><code class="language-js">display<span class="token punctuation">:</span> none
+opacity<span class="token punctuation">:</span> <span class="token number">0</span>
+visibility<span class="token punctuation">:</span> hidden
+z<span class="token operator">-</span>index<span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">9999999999999</span>
+transform<span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+margin<span class="token operator">-</span>left<span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">100</span><span class="token operator">%</span>
+position<span class="token punctuation">:</span> relative<span class="token punctuation">;</span> left<span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">100</span><span class="token operator">%</span>
+width<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span> height<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -508,9 +499,9 @@ v<span class="token operator">-</span>html 绑定富文本内容</code></pre>
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Vue 基础（一）》
+                    《综合基础问题回顾》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/18/vue/vue1/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/30/js/" property="cc:attributionName"
                rel="cc:attributionURL">
                 John Doe
             </a> 采用
@@ -550,9 +541,10 @@ v<span class="token operator">-</span>html 绑定富文本内容</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/09/30/js/">
                     <div class="card-image">
@@ -572,9 +564,9 @@ css的lin
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -587,6 +579,7 @@ css的lin
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -605,20 +598,24 @@ css的lin
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/18/w15/">
+                <a href="/2019/09/18/vue/vue1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="React 项目目录结构分析">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Vue 基础（一）">
                         
-                        <span class="card-title">React 项目目录结构分析</span>
+                        <span class="card-title">Vue 基础（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            build这个文件主要放了一些与webpack打包的相关文件。
-build.js —- webpack打包脚本，用于构建生产环境的包check-versions.js —- 主要检测当前打包环境的node以及npm的版本是否符合要求util
+                            vue 使用框架后，是改变的一个 思想：数据驱动
+在vue中我们使用@绑定一个事件，或者用v-on 
+@click=""这里面可以直接写一个表达式，
+@是 v-on 的简写
+v-xx 以v-开头的是是vue中的指令
+v-model 事项数据
                         
                     </div>
                     <div class="publish-info">
@@ -629,8 +626,8 @@ build.js —- webpack打包脚本，用于构建生产环境的包check-versions
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/React/" class="post-category" target="_blank">
-                                    React
+                            <a href="/categories/Vue/" class="post-category" target="_blank">
+                                    Vue
                                 </a>
                             
                             
@@ -640,8 +637,8 @@ build.js —- webpack打包脚本，用于构建生产环境的包check-versions
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/React-项目目录结构分析/" target="_blank">
-                        <span class="chip bg-color">React 项目目录结构分析</span>
+                    <a href="/tags/Vue-基础（一）/" target="_blank">
+                        <span class="chip bg-color">Vue 基础（一）</span>
                     </a>
                     
                 </div>
